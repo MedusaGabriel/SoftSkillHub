@@ -1,10 +1,28 @@
+import { useEffect } from 'react'; // Importando o useEffect
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import "../styles/Header.css";
 import PropTypes from 'prop-types';
 
-function Header({ toggleModal }) {  // Receber a função toggleModal como prop
+function Header({ toggleModal }) {
+  // Adicionando o código de animação de rolagem
+  useEffect(() => {
+    const handleScroll = () => {
+      let header = document.querySelector('#header');
+      
+      header.classList.toggle('Scrolling', window.scrollY > 200);
+    };
+
+    // Adicionando o evento de scroll
+    window.addEventListener('scroll', handleScroll);
+
+    // Limpeza do evento quando o componente for desmontado
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // O array vazio [] garante que o useEffect seja chamado apenas uma vez
+
   return (
     <header id="header">
       <div className="Hcontainer">
@@ -35,9 +53,9 @@ function Header({ toggleModal }) {  // Receber a função toggleModal como prop
     </header>
   );
 }
+
 Header.propTypes = {
   toggleModal: PropTypes.func.isRequired,
 };
 
 export default Header;
-
