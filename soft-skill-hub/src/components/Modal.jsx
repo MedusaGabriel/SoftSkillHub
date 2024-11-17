@@ -33,7 +33,7 @@ const Modal = ({ isOpen, onClose }) => {
                   <ion-icon name="mail"></ion-icon>
                 </span>
                 <input type="email" required />
-                <label>Email</label>
+                <label>Emaisdl</label>
               </div>
               <div className="input-box">
                 <span className="icon">
