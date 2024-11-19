@@ -1,45 +1,144 @@
-/* Home.css */
-
-body {
+/* ===================
+   Estilo Geral
+   =================== */
+   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-image: url('../src/assets/imgs/background.jpg');
     background-size: cover;
     background-position: center;
-
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #4CAF50;
-    color: white;
-}
-
-.header h1 {
     margin: 0;
-    font-size: 2.5em;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
-.content {
-    padding: 20px;
+/* ===================
+   Welcome Home
+   =================== */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.footer {
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Preenche a altura total da tela */
+    text-align: center; /* Alinha o texto no centro horizontal */
+    flex-direction: column; /* Garante alinhamento vertical se precisar de mais elementos */
+}
+
+.welcome h1 {
+    font-size: 5rem; /* Ajusta o tamanho da fonte */
+    color: #333; /* Cor do texto */
+    font-family: 'Inter', sans-serif; /* Escolha uma fonte bonita */
+    animation: slide-in 1s ease-out; /* Adiciona animação */
+}
+
+#soft-h1 {
+    color: #9c27b0; /* Cor do texto */
+    font-family: 'Inter', sans-serif; /* Escolha uma fonte bonita */
+    animation: slide-in 1.5s ease-out; /* Com delay pra dar aquele charme */
+}
+
+
+/* ===================
+   Cards
+   =================== */
+
+   /*cards*/
+.destaques-titulo {
+    color: var(--primary-color);
+    font-size: 2em;
     text-align: center;
-    padding: 10px 0;
-    background-color: #4CAF50;
-    color: white;
-    position: fixed;
+    margin: 20px 0;
+}
+
+.cards {
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 8px var(--card-shadow);
+    padding: 20px;
+    border-radius: 8px;
     width: 100%;
-    bottom: 0;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.card p {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-text {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    width: 50%;
+    max-width: 400px;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+
+/* Intro*/
+
+.intro {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    text-align: center;
+}
+
+.intro h2 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.image-card-section {
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.intro-image {
+    width: 50%;
+    max-width: 600px;
+    border-radius: 8px;
 }

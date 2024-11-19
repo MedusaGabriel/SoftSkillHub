@@ -31,6 +31,16 @@ footer {
     transition: transform 0.5s ease-in-out;
 }
 
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #4CAF50;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 footer.Scrolling {
     background-color: #e91e63; /* Muda o fundo ao rolar */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */

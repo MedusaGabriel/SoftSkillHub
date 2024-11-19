@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Modal.css';  // Certifique-se de que o CSS está correto
 
 const Modal = ({ isOpen, onClose }) => {
-  const [isRegister, setIsRegister] = useState(false);
+  const [isRegister, setIsRegister] = React.useState(false);
 
   const handleSwitchToRegister = () => {
     setIsRegister(true);
@@ -18,7 +18,6 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <div className={`wrapper-container ${isRegister ? "active-popup" : ""}`}>
       <div className={`wrapper ${isRegister ? "active" : ""}`}>
-        {/* Botão de fechar o modal */}
         <span className="icon-close" onClick={onClose}>
           <ion-icon name="close"></ion-icon>
         </span>
@@ -33,7 +32,7 @@ const Modal = ({ isOpen, onClose }) => {
                   <ion-icon name="mail"></ion-icon>
                 </span>
                 <input type="email" required />
-                <label>Emaisdl</label>
+                <label>Email</label>
               </div>
               <div className="input-box">
                 <span className="icon">
@@ -41,12 +40,6 @@ const Modal = ({ isOpen, onClose }) => {
                 </span>
                 <input type="password" required />
                 <label>Senha</label>
-              </div>
-              <div className="remember-forgot">
-                <label>
-                  <input type="checkbox" /> Lembre-se de mim
-                </label>
-                <a href="#">Esqueceu a senha?</a>
               </div>
               <button type="submit" className="btn">Entrar</button>
               <div className="login-register">

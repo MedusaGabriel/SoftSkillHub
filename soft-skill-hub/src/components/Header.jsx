@@ -1,16 +1,24 @@
-import { useEffect } from 'react'; // Importando o useEffect
+import { useEffect, useState } from 'react'; // Importando o useEffect e useState
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import "../styles/Header.css";
 import PropTypes from 'prop-types';
+import Modal from './Modal';  // Certifique-se de que o Modal está sendo importado
 
-function Header({ toggleModal }) {
+function Header() {
+  // Estado para controlar a visibilidade do Modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Função para alternar a visibilidade do Modal
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   // Adicionando o código de animação de rolagem
   useEffect(() => {
     const handleScroll = () => {
       let header = document.querySelector('#header');
-      
       header.classList.toggle('Scrolling', window.scrollY > 200);
     };
 
@@ -44,12 +52,16 @@ function Header({ toggleModal }) {
 
           {/* Botão de login/registro que agora abre o modal */}
           <div className="btn-Hmodal">
-            <button id="btn-modal" onClick={toggleModal}> {/* Chama a função toggleModal */}
+            <button id="btn-modal" onClick={toggleModal}>
               <FontAwesomeIcon icon={faUser} className="IconUser" />
             </button>
           </div>
+
         </div>
       </div>
+
+      {/* Modal: passando as props para controlar a visibilidade e fechamento */}
+      <Modal isOpen={isModalOpen} onClose={toggleModal} />
     </header>
   );
 }

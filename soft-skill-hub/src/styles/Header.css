@@ -38,6 +38,13 @@ header {
     left: 0;
     transition: 1s;
 }
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 header.Scrolling {
     background-color: #e91e63; /* Muda o fundo ao rolar */
@@ -162,6 +169,17 @@ header ul {
     background-color: transparent; /* Cor quando em foco */
 }
 
+button {
+    border-radius: 8px;
+    border: none;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
 /* ===================
    botão perfil DO MODAL (btn-modal)
    =================== */
