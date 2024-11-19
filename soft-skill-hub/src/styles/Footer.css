@@ -1,32 +1,148 @@
-/* Footer.css */
+/* ===================
+   RESPONSIVIDADE
+   =================== */
+   @media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Header se empilha verticalmente */
+        padding: 15px 3%;
+    }
+    .navigation ul {
+        flex-direction: column; /* Menu vira uma lista vertical */
+        align-items: center;
+        gap: 10px; /* Reduz o espaço entre os itens */
+    }
+}
 
-.footer {
-    background-color: #333;
-    color: #fff;
+/* ===================
+   FOOTER (Geral)
+   =================== */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e91e63;
     padding: 20px 0;
-    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
-.footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
+footer.Scrolling {
+    background-color: #e91e63; /* Muda o fundo ao rolar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    padding: 20px 4%;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+footer.Scrolling a,
+footer.Scrolling i {
+    color: #ffffff;
 }
 
-.footer .social-icons {
-    margin-top: 10px;
-}
-
-.footer .social-icons a {
-    margin: 0 5px;
+footer ul li {
     display: inline-block;
+    margin: 0 40px;
 }
 
-.footer .social-icons img {
-    width: 24px;
-    height: 24px;
+footer ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
 }
+
+footer ul {
+    list-style-type: none;
+}
+
+
+/* =========================
+   ESTILOS DO FOOTER
+   ========================== */
+   #footer {
+    position: fixed; /* O footer ficará fixo na parte inferior da tela */
+    bottom: -150px; /* Começa escondido abaixo da tela */
+    left: 0;
+    width: 100%;
+    background-color: #e91e63; /* Cor de fundo do footer */
+    transition: transform 0.5s ease-in-out; /* Transição suave para o efeito de aparecer */
+  }
+  
+  /* Quando a classe show for adicionada ao footer */
+  #footer.show {
+    transform: translateY(-150px); /* Faz o footer aparecer da parte inferior */
+    transition: transform 0.5s ease-in-out; /* Transição suave para o efeito de aparecer */
+  }
+  
+  .footer__content {
+    display: flex; /* Alinha o texto e os ícones em uma coluna */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    text-align: center; /* Garante que o texto dentro do <p> também será centralizado */
+    padding: 20px 0; /* Adiciona padding para separar o conteúdo do topo e do rodapé */
+  }
+  
+  .footer__content p {
+    margin: 0;
+    font-size: 20px; /* Tamanho da fonte do texto */
+  }
+  
+  .footer__social {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Centraliza os ícones de redes sociais */
+  }
+  
+  .footer__social a {
+    margin: 0 15px; /* Espaço maior entre os ícones */
+    color: white; /* Cor dos ícones */
+    font-size: 24px; /* Tamanho dos ícones */
+    transition: color 0.3s; /* Transição suave para a mudança de cor */
+  }
+  
+  .footer__social a:hover {
+    color: #9c27b0; /* Cor ao passar o mouse */
+  }
+  
+
+/* =========================
+   ESTILOS DO back-to-top
+   ========================== */
+   .back-to-top {
+    max-width: 1280px;
+    font-size: 40px;
+    margin: 0 auto;
+    position: fixed; /* Fixar o botão na tela */
+    bottom: 20px; /* Distância da parte inferior */
+    right: 20px; /* Distância da parte direita */
+    background-color: transparent; /* Cor de fundo */
+    color: white; /* Cor do ícone */
+    padding: 20px 20px; /* Espaçamento interno */
+    border-radius: 50%; /* Botão arredondado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-to-top:hover {
+    background-color: transparent; /* Cor do botão ao passar o mouse */
+  }
+  
+  .back-to-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .back-to-top a .fa-uncharted {
+    transform: rotate(0deg) scale(1); /* Estado inicial: sem rotação e no tamanho original */
+    transition: transform 0.5s ease-in-out; /* Transição suave para a rotação e aumento */
+  }
+  
+  .back-to-top a:hover .fa-uncharted {
+    transform: rotate(360deg) scale(1.5); /* Gira o ícone 360 graus */
+    transition: transform 0.5s ease-in-out; /* Transição suave */
+  }
