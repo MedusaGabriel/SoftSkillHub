@@ -31,7 +31,7 @@ function Footer() {
       </a>
     </div>
 
-    <p>Feito com </p> <FontAwesomeIcon icon={faUncharted} /> <p>por Soft Skill Hub</p>
+    <p>Feito com por Soft Skill Hub</p>
     
     {/* Seção de ícones das redes sociais */}
     <div className="footer__social">

@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import "../styles/Header.css";
-import PropTypes from 'prop-types';
-import Modal from './Modal';  // Certifique-se de que o Modal está sendo importado
+import Modal from './Modal'; // Certifique-se de que o Modal está sendo importado
 
 function Header() {
   // Estado para controlar a visibilidade do Modal
@@ -65,9 +64,5 @@ function Header() {
     </header>
   );
 }
-
-Header.propTypes = {
-  toggleModal: PropTypes.func.isRequired,
-};
 
 export default Header;

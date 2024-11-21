@@ -1,25 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Modal.css';  // Certifique-se de que o CSS está correto
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';  // Importando o ícone "fa-xmark"
 
 const Modal = ({ isOpen, onClose }) => {
   const [isRegister, setIsRegister] = React.useState(false);
+  const [isClosing, setIsClosing] = React.useState(false);
 
   const handleSwitchToRegister = () => {
     setIsRegister(true);
   };
-
   const handleSwitchToLogin = () => {
     setIsRegister(false);
   };
 
-  if (!isOpen) return null;  // Se o modal não estiver aberto, não renderiza nada.
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      setIsClosing(true); // Inicia a animação de fade-out
+      setTimeout(() => {
+        setIsClosing(false); // Reseta o estado após a animação
+      }, 500); // Tempo de duração da animação (500ms)
+    }
+  }, [isOpen]);
+
+  if (!isOpen && !isClosing) return null; // Retorna nulo se o modal estiver fechado
+
+  const handleModalClick = (e) => {
+    e.stopPropagation(); // Impede o fechamento do modal quando clicado no conteúdo
+  };
 
   return (
-    <div className={`wrapper-container ${isRegister ? "active-popup" : ""}`}>
-      <div className={`wrapper ${isRegister ? "active" : ""}`}>
+    <div
+      className={`wrapper-container ${isOpen ? 'fade-in' : 'fade-out'}`}
+      onClick={onClose}  // Fecha o modal se clicar na área externa
+    >
+      <div
+        className={`wrapper ${isOpen ? 'fade-in' : 'fade-out'} ${isRegister ? 'active' : ''}`}
+        onClick={handleModalClick} 
+      >
+        {/* Botão de fechar com FontAwesome */}
         <span className="icon-close" onClick={onClose}>
-          <ion-icon name="close"></ion-icon>
+          <FontAwesomeIcon icon={faXmark} />
         </span>
 
         {/* Formulário de Login */}
@@ -62,7 +85,7 @@ const Modal = ({ isOpen, onClose }) => {
                   <ion-icon name="person"></ion-icon>
                 </span>
                 <input type="text" required />
-                <label>Usuário</label>
+                <label>Nome</label>
               </div>
               <div className="input-box">
                 <span className="icon">
