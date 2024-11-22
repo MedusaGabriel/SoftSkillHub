@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'; // Importando o useEffect e useStat
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import "../styles/Header.css";
-import Modal from './Modal'; // Certifique-se de que o Modal está sendo importado
+import "../header/Header.css"; // Crie um arquivo separado para o Header
+import Modal from '../modal/Modal'; // Certifique-se de que o Modal está sendo importado
 
 function Header() {
   // Estado para controlar a visibilidade do Modal
@@ -42,8 +42,8 @@ function Header() {
           {/* Navegação */}
           <nav className="navigation">
             <ul>
-              <li><a href="#">Início</a></li>
-              <li><a href="#">Habilidades</a></li>
+              <li><a href="/">Início</a></li>
+              <li><a href="/habilidades">Habilidades</a></li>
               <li><a href="#">Práticas</a></li>
               <li><a href="#">Perfil</a></li>
             </ul>

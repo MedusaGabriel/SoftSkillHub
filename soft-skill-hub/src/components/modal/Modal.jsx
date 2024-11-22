@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/Modal.css';  // Certifique-se de que o CSS está correto
+import '../modal/Modal.css';  // Certifique-se de que o CSS está correto
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';  // Importando o ícone "fa-xmark"
 
@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose }) => {
 
   React.useEffect(() => {
     if (!isOpen) {
-      setIsClosing(true); // Inicia a animação de fade-out
+      setIsClosing(false); // Inicia a animação de fade-out
       setTimeout(() => {
         setIsClosing(false); // Reseta o estado após a animação
       }, 500); // Tempo de duração da animação (500ms)

@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Header from "../src/components/header/Header";
+import Footer from "../src/components/footer/Footer";
+import Home from "../src/pages/home/Home";
+import Habilidades from "./pages/habilidades/Habilidades";  
 import "./App.css";
-import Modal from "./components/Modal";
+import Modal from "./components/modal/Modal";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/habilidades" element={<h1>Habilidades</h1>} />
+          <Route path="/habilidades" element={<Habilidades />} />
         </Routes>
       </div>
       <Footer />
