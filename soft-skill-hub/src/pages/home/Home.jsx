@@ -10,32 +10,33 @@ import "../home/Home.css";
 
 function Home() {
   useEffect(() => {
-    const handleScroll = () => {
-      const containerHome = document.querySelector(".container-Home");
-      const contentDivs = containerHome.querySelectorAll(".content");
+    // Função para adicionar a animação quando os elementos entram na tela
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Verifica se o elemento tem a classe .content ou .content2
+            if (entry.target.classList.contains("content")) {
+              entry.target.classList.add("fadeInLeft"); // Adiciona fadeInLeft para .content
+            } else if (entry.target.classList.contains("content2")) {
+              entry.target.classList.add("fadeInRight"); // Adiciona fadeInRight para .content2
+            }
+            observer.unobserve(entry.target); // Para de observar o elemento após a animação
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-      contentDivs.forEach((div) => {
-        const divPosition = div.getBoundingClientRect().top; // Posição da div em relação à janela
-        const windowHeight = window.innerHeight;
+    const contentDivs = document.querySelectorAll(".content, .content2");
 
-        // Verifica se a div está visível na tela (quando ela alcança 75% da altura da janela)
-        if (divPosition <= windowHeight * 0.75) {
-          div.classList.add("fadeInRight"); // Aplica apenas a animação fadeInRight
-        }
-      });
-    };
+    contentDivs.forEach((div) => {
+      observer.observe(div);
+    });
 
-    // Adiciona o evento de scroll
-    window.addEventListener("scroll", handleScroll);
-
-    // Executa a função no carregamento inicial para aplicar animação nas divs visíveis
-    handleScroll();
-
-    // Limpa o evento quando o componente for desmontado
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => observer.disconnect();
   }, []);
+
   return (
     <>
       <div className="welcome">
@@ -45,85 +46,105 @@ function Home() {
         <p>Seu centro de desenvolvimento pessoal e profissional</p>
       </div>
 
-    
-
-
-
-
-
-
       <div className="container-Home">
         <main>
           <section className="intro">
             <h2>Como Funciona?</h2>
-            <p>
-              Bem-vindo ao nosso portal de prática de soft skills! Aqui você
-              encontra a Central de Habilidades, nosso banco exclusivo com
-              tutoriais, materiais de estudo e desafios para melhorar a soft
-              skill que você escolher desenvolver.
-            </p>
-            <p>
-              Nossa plataforma é focada exclusivamente em soft skills, mas de
-              vez em quando podemos explorar outras áreas como hard skills,
-              software, hardware e até algumas curiosidades do mercado de
-              trabalho. Tudo isso para proporcionar uma experiência completa e
-              enriquecedora para o seu desenvolvimento.
-            </p>
           </section>
 
-          <section className="practice-section">
-            <h3>Página de Práticas</h3>
-            <p>
-              Em nossa página de práticas, você encontrará mini questionários
-              rápidos, que duram em torno de 3 minutos, com perguntas
-              relacionadas à soft skill escolhida. Esses exercícios são
-              projetados para avaliar e reforçar o que você aprendeu durante os
-              estudos.
-            </p>
-            <p>
-              Cada soft skill possui três estágios padrão, e cada estágio inclui
-              um questionário com 5 perguntas. Após completar os três estágios,
-              você ficará livre para explorar outros níveis ou áreas. Porém,
-              para concluir o checklist dessa soft skill, é necessário completar
-              todos os questionários com sucesso.
-            </p>
-            <p>
-              Essa abordagem ajuda você a construir conhecimento sólido e
-              avançar no seu aprendizado de maneira estruturada. Além disso,
-              você poderá visualizar seu progresso e compartilhar conquistas com
-              outros usuários da plataforma.
-            </p>
-          </section>
+          <div className="timeline">
+            <div className="timeline-line"></div>
 
-          <section className="benefits-section flex">
-            <img
-              src="./src/assets/imgs/homepeople.png"
-              alt="Imagem de Soft Skills"
-              className="intro-image"
-            />
-            <div className="card-text">
-              <p>
-                Nosso objetivo é criar um ambiente onde você possa desenvolver
-                suas habilidades interpessoais de forma prática, divertida e
-                contínua. Ao se inscrever, você terá acesso a uma gama de
-                ferramentas e exercícios para transformar sua carreira e seu
-                crescimento pessoal.
-              </p>
-              <p>
-                Comece sua jornada hoje mesmo e descubra como as soft skills
-                podem abrir novas portas e oportunidades para você. Transforme
-                sua forma de aprender e se desenvolver!
-              </p>
+            <div className="timeline-item content">
+              <div className="timeline-circle">1</div>
+              <div className="timeline-content">
+                <div className="timeline-text">
+                  <h3>Cadastro</h3>
+                  <p>
+                    Antes de tudo, para acessar nosso conteúdo exclusivo e
+                    materiais de estudo, você precisa se cadastrar! É fácil:
+                    clique no ícone de usuário ou no botão no final desta página
+                    e comece agora mesmo.
+                  </p>
+                </div>
+                <div className="timeline-image">
+                  <img src="../src/assets/imgs/cadastro.png" alt="Imagem 1" />
+                </div>
+              </div>
             </div>
-          </section>
 
+            <div className="timeline-item content2">
+              <div className="timeline-circle">2</div>
+              <div className="timeline-content">
+                <div className="timeline-image">
+                  <img src="../src/assets/imgs/conteudo.png" alt="Imagem 2" />
+                </div>
+                <div className="timeline-text2">
+                  <h3>Apresentação ao Conteúdo</h3>
+                  <p>
+                    Conta criada com sucesso? Agora é hora de escolher pelo
+                    menos 3 soft skills que você quer aprender. Assim que fizer
+                    sua seleção, você terá acesso à nossa incrível Central de
+                    Habilidades.
+                  </p>
+                </div>
+              </div>
+            </div>
 
+            <div className="timeline-item content">
+              <div className="timeline-circle">3</div>
+              <div className="timeline-content">
+                <div className="timeline-text">
+                  <h3>Central de Habilidades</h3>
+                  <p>
+                    Na Central de Habilidades, você encontrará todo o nosso
+                    conteúdo educativo, organizado e personalizado de acordo com
+                    as suas necessidades e objetivos.
+                  </p>
+                </div>
+                <div className="timeline-image">
+                  <img src="../src/assets/imgs/skills.png" alt="Imagem 3" />
+                </div>
+              </div>
+            </div>
 
-     
-          <h2 className="destaques-titulo">Destaques</h2>
-          <div className="cards flex">
-            <div className="cardHome">
-              <div className="cardHome2">
+            <div className="timeline-item content2">
+              <div className="timeline-circle">4</div>
+              <div className="timeline-content">
+                <div className="timeline-image">
+                  <img src="../src/assets/imgs/pratica.png" alt="Imagem 4" />
+                </div>
+                <div className="timeline-text2">
+                  <h3>Central de Práticas</h3>
+                  <p>
+                    Aqui você pode acompanhar de perto seu progresso! Visualize
+                    as soft skills escolhidas para aprender e monitore o quanto
+                    já avançou em cada uma delas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="timeline-item content">
+              <div className="timeline-circle">5</div>
+              <div className="timeline-content">
+                <div className="timeline-text">
+                  <h3>Perfil</h3>
+                  <p>
+                    Essa é a sua área pessoal! Veja suas conquistas, confira
+                    quantas habilidades já dominou e celebre o seu progresso.
+                  </p>
+                </div>
+                <div className="timeline-image">
+                  <img src="https://via.placeholder.com/150" alt="Imagem 5" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="home-cards">
+            <div className="home-card">
+              <div className="home-card-content">
                 <FontAwesomeIcon icon={faDumbbell} size="3x" />
                 <h3>Prática</h3>
                 <p>
@@ -133,8 +154,8 @@ function Home() {
               </div>
             </div>
 
-            <div className="cardHome">
-              <div className="cardHome2">
+            <div className="home-card">
+              <div className="home-card-content">
                 <FontAwesomeIcon icon={faPeopleGroup} size="3x" />
                 <h3>Trabalho de Equipe</h3>
                 <p>
@@ -143,8 +164,8 @@ function Home() {
               </div>
             </div>
 
-            <div className="cardHome">
-              <div className="cardHome2">
+            <div className="home-card">
+              <div className="home-card-content">
                 <FontAwesomeIcon icon={faHandBackFist} size="3x" />
                 <h3>Resiliência</h3>
                 <p>
@@ -153,8 +174,8 @@ function Home() {
               </div>
             </div>
 
-            <div className="cardHome">
-              <div className="cardHome2">
+            <div className="home-card">
+              <div className="home-card-content">
                 <FontAwesomeIcon icon={faCalendarCheck} size="3x" />
                 <h3>CheckList</h3>
                 <p>
@@ -162,10 +183,7 @@ function Home() {
                 </p>
               </div>
             </div>
-
           </div>
-
-
         </main>
       </div>
     </>
