@@ -1,27 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-:root {
-    --primary-color: #e91e63; /* Rosa escuro */
-    --secondary-color: #fce4ec; /* Rosa claro */
-    --text-color: #333; /* Cor do texto */
-    --card-bg-color: white; /* Fundo dos cartões */
-    --card-shadow: rgba(0, 0, 0, 0.2); /* Sombra dos cartões */
-    --color-neutral-0: #0e0c0c;
-    --color-neutral-10: #171717;
-    --color-neutral-30: #a8a29e;
-    --color-neutral-40: #f5f5f5;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("../src/assets/imgs/background.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-height: 100vh;
+    color: #fff;
+    background-color: #333;
+  }
+
+  .main-content{
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
 }
+
+
 
 * {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 0; /* Corrigido de 'auto' para '0' */
+    padding: auto;
     box-sizing: border-box;
-    letter-spacing: 1px;
-}
-
-html{
-    min-height: 500vh;
+ 
 }
 
 .flex{

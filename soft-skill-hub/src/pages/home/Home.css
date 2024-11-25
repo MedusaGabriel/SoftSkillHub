@@ -1,18 +1,13 @@
-/* ===================
-   Estilo Geral
-   =================== */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url("../src/assets/imgs/background.jpg");
-  background-size: cover;
-  background-position: center;
+
+.container-Home{
   display: flex;
   flex-direction: column;
-  place-items: center;
-  min-height: 500vh;
-  color: #fff;
+  align-items: center;
+  justify-content: center;
+  min-height: 380vh;
+  gap: 20px;
+  margin-top: 40px;
+  background-color: #333;
 }
 
 /* ===================
@@ -90,6 +85,7 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 20px;
+  margin-top: 40px;
 }
 
 .home-card {
@@ -146,8 +142,6 @@ body {
   background: linear-gradient(135deg, #9c27b0, #d81b60);
   padding: 20px;
   margin-top: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
   border-radius: 8px;
   text-align: center;
 }
@@ -429,7 +423,6 @@ body {
 .timeline-image img {
   width: 100%;
   border-radius: 8px;
-  /* Mantém bordas arredondadas */
   object-fit: cover;
 }
 
@@ -438,4 +431,151 @@ img[alt="Imagem 2"] {
   height: auto;
   border-radius: 8px;
   object-fit: contain;
+}
+
+
+/* ===================
+   abaixo dos cards
+   =================== */
+
+   .cards-intro {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 20px 20px 50px rgba(240, 240, 240, 0.5);
+    background: linear-gradient(135deg, #9c27b0, #d81b60);
+    padding: 20px;
+
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .cards-intro h2 {
+    color: #f5f5f5;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+
+  /* Feedback Section */
+.home-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+  background: linear-gradient(135deg, #9c27b0, #d81b60);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Comments Container */
+.home-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual Comment */
+.home-comment {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.home-comment:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Decorative Elements */
+.home-comment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #9c27b0, #d81b60);
+  border-radius: 8px 8px 0 0;
+}
+
+.home-comment::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+/* Typography */
+.home-comment p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.home-comment strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Call-to-Action Section */
+.home-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg,  #9c27b0, #d81b60);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* CTA Heading */
+.home-cta h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* CTA Button */
+.btn-cta {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:  #9c27b0;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.btn-cta:hover {
+  background-color: #ffe8e1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Active State */
+.btn-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }

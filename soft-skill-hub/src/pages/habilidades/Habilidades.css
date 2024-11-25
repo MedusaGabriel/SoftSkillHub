@@ -1,17 +1,6 @@
 /* Habilidades.css */
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-image: url('../../assets/imgs/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    min-height: 500vh;
 
-}
+
 /* ===================
    Welcome Home
    =================== */

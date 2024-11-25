@@ -7,6 +7,7 @@ import {
   faCalendarCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import "../home/Home.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   useEffect(() => {
@@ -142,6 +143,10 @@ function Home() {
             </div>
           </div>
 
+          <section className="cards-intro">
+            <h2>Por que escolhe nosso site? </h2>
+          </section>
+
           <div className="home-cards">
             <div className="home-card">
               <div className="home-card-content">
@@ -184,6 +189,59 @@ function Home() {
               </div>
             </div>
           </div>
+
+          <section className="home-feedback">
+            <h2>Comentários de nossos usuários</h2>
+            <div className="home-comments">
+              {/* Exemplo de comentário */}
+              <div className="home-comment">
+                <p>
+                  Esse site mudou completamente como eu encaro trabalho em
+                  equipe. Recomendo demais!
+                  <strong> - João S.</strong>
+                </p>
+              </div>
+
+              <div className="home-comment">
+                <p>
+                  Adorei a forma prática de desenvolver minhas soft skills.
+                  Muito intuitivo!
+                  <strong> - Ana M.</strong>
+                </p>
+              </div>
+
+              <div className="home-comment">
+                <p>
+                  Adorei a forma prática de desenvolver minhas soft skills.
+                  Muito intuitivo!
+                  <strong> - Ana M.</strong>
+                </p>
+              </div>
+
+              <div className="home-comment">
+                <p>
+                  Adorei a forma prática de desenvolver minhas soft skills.
+                  Muito intuitivo!
+                  <strong> - Ana M.</strong>
+                </p>
+              </div>
+
+              <div className="home-comment">
+                <p>
+                  Adorei a forma prática de desenvolver minhas soft skills.
+                  Muito intuitivo!
+                  <strong> - Ana M.</strong>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="home-cta">
+            <h2>Pronto para começar?</h2>
+            <Link to="/cadastro" className="btn-cta">
+              Cadastre-se
+            </Link>
+          </section>
         </main>
       </div>
     </>

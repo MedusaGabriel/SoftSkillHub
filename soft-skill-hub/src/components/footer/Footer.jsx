@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'; 
+import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faAnglesUp } from '@fortawesome/free-solid-svg-icons'; 
 import "../footer/Footer.css"; // Certifique-se de ter o estilo do Footer
@@ -7,6 +8,7 @@ import { faInstagram, faWhatsapp, faTwitter, faFacebook } from '@fortawesome/fre
 function Footer() {
   const [isScrolling, setIsScrolling] = useState(false); // Controla o botão "back-to-top"
   const [showFooter, setShowFooter] = useState(false); // Controla a animação do footer
+  const location = useLocation();
 
   // Detecta se houve rolagem
   useEffect(() => {
@@ -29,7 +31,6 @@ function Footer() {
       setShowFooter(scrollPosition > pageHeight - 200); // Animação do footer
     };
 
-    // Adiciona o event listener para rolagem
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -37,6 +38,13 @@ function Footer() {
       clearTimeout(scrollTimeout); // Limpa o timeout quando o componente for desmontado
     };
   }, []);
+
+  useEffect(() => {
+    if (location.pathname === "/cadastro") {
+      setShowFooter(true);
+    }
+  }, [location]);
+
 
   return (
     <footer id="footer" className={`footer ${showFooter ? 'show' : ''}`}>
