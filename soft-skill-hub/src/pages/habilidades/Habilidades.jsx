@@ -4,28 +4,68 @@ import {
   faMountain,
   faHeart,
   faComments,
-  faCrown,
-  faRocket,
-  faHandshake,
-  faBrain,
-  faLightbulb,
-  faCloud,
-  faDatabase,
-  faNetworkWired,
-  faCode,
-  faPen,
-  faBook,
-  faChalkboardTeacher,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import { createServer } from "miragejs";
 
 const Habilidades = () => {
+  const [skills, setSkills] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  //Mirage.js (API fake) Essa logica e temporaria enquanto o Api nao esta disponivel, ela simula uma API!
+  //Inicio da logica temporaria
+  useEffect(() => {
+    createServer({
+      routes() {
+        this.namespace = "api";
+
+        // Simula uma rota para pegar as habilidades
+        this.get("/skills", () => [
+          { id: 1, nome: "Liderança", icon: faMountain },
+          { id: 2, nome: "Trabalho em Equipe", icon: faHeart },
+          { id: 3, nome: "Pensamento Crítico", icon: faComments },
+          { id: 4, nome: "Resiliência", icon: faMountain },
+          { id: 5, nome: "Empatia", icon: faHeart },
+          { id: 6, nome: "Comunicação", icon: faComments },
+          { id: 7, nome: "Comunicação", icon: faComments },
+        ]);
+      },
+    });
+
+    // Fazendo a requisição para pegar os dados da API Fake
+    fetch("/api/skills")
+      .then((res) => res.json())
+      .then((data) => setSkills(data));
+  }, []);
+  // Fim da logica temporaria
+
+  // Esse é o codigo da Api Real que sera utilizado no futuro (remove o Mirage.js e substitui por essa com a Url da Api)
+
+  //  const API_URL = "https://sua-api.com/skills";
+  //useEffect(() => {
+  //
+  //fetch(API_URL)
+  // .then((res) => {
+  //  if (!res.ok) {
+  //    throw new Error("Erro ao buscar as skills do banco de dados.");
+  //  }
+  //   return res.json();
+  // })
+  //  .then((data) => setSkills(data))
+  //  .catch((error) => console.error("Erro:", error));
+  //}, []);
+
+  const filteredSkills = skills.filter((skill) =>
+    skill.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <div className="containerHs">
         <div className="container-titleH">
           <h1 id="TituloS">
-            {" "}
-            Bem-vindo a Central de Habilidades da Soft Skills
+            Bem-vindo à Central de Habilidades da Soft Skills
           </h1>
         </div>
       </div>
@@ -33,6 +73,7 @@ const Habilidades = () => {
       <main>
         <div className="skill-container">
           <h2 id="Primary">Principais características mais procuradas:</h2>
+
           <div className="container-cardsH">
             <div className="cardH">
               <div className="first-content">
@@ -90,218 +131,34 @@ const Habilidades = () => {
             </div>
           </div>
 
+          <h3 id="Primary">Skills Disponíveis em nosso Banco de dados</h3>
+
+          <div className="search-container">
+            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+            <input
+              type="text"
+              placeholder="Pesquise uma habilidade..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} // Atualiza o estado de busca
+              className="search-bar"
+            />
+          </div>
+
+          {/* Aqui renderizamos as skills vindas da API */}
+
           <div className="container-grid">
-            <div id="Secondary">
-              <h2>Habilidades X</h2>
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faChalkboardTeacher} size="3x" />{" "}
-                      {/* Ensino */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Ensino</span>
-                  </div>
+            {filteredSkills.map((skill) => (
+              <div className="cardH" key={skill.id}>
+                <div className="first-content">
+                  <span>
+                    <FontAwesomeIcon icon={skill.icon} size="3x" />
+                  </span>
                 </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faBook} size="3x" />{" "}
-                      {/* Conhecimento */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Conhecimento</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faPen} size="3x" /> {/* Escrita */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Escrita</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faLightbulb} size="3x" />{" "}
-                      {/* Criatividade */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Criatividade</span>
-                  </div>
+                <div className="second-content">
+                  <span>{skill.nome}</span>
                 </div>
               </div>
-            </div>
-
-            <div id="Secondary">
-              <h2>Habilidades Z</h2>
-
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faComments} size="3x" />{" "}
-                      {/* Comunicação */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Comunicação</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faMountain} size="3x" />{" "}
-                      {/* Resiliência */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Resiliência</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faCrown} size="3x" />{" "}
-                      {/* Liderança */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Liderança</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faHeart} size="3x" />{" "}
-                      {/* Empatia */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Empatia</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="Secondary">
-              <h2>Habilidades Y</h2>
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faLightbulb} size="3x" />{" "}
-                      {/* Criatividade */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Criatividade</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faHandshake} size="3x" />{" "}
-                      {/* Colaboração */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Colaboração</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faBrain} size="3x" />{" "}
-                      {/* Pensamento Crítico */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Pensamento Crítico</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faRocket} size="3x" />{" "}
-                      {/* Inovação */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Inovação</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="Secondary">
-              <h2>Habilidades R</h2>
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faCode} size="3x" />{" "}
-                      {/* Lógica de Programação */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Lógica de Programação</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faNetworkWired} size="3x" />{" "}
-                      {/* Redes e Sistemas */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Redes e Sistemas</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faDatabase} size="3x" />{" "}
-                      {/* Bancos de Dados */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Bancos de Dados</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faCloud} size="3x" />{" "}
-                      {/* Computação em Nuvem */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Computação em Nuvem</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </main>
