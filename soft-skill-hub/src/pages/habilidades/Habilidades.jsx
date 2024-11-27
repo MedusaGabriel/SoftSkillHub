@@ -1,6 +1,22 @@
 import "../habilidades/Habilidades.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandBackFist } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMountain,
+  faHeart,
+  faComments,
+  faCrown,
+  faRocket,
+  faHandshake,
+  faBrain,
+  faLightbulb,
+  faCloud,
+  faDatabase,
+  faNetworkWired,
+  faCode,
+  faPen,
+  faBook,
+  faChalkboardTeacher,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Habilidades = () => {
   return (
@@ -11,18 +27,17 @@ const Habilidades = () => {
             {" "}
             Bem-vindo a Central de Habilidades da Soft Skills
           </h1>
-          <div className="infoH"></div>
         </div>
       </div>
 
       <main>
-        <div>
+        <div className="skill-container">
           <h2 id="Primary">Principais características mais procuradas:</h2>
           <div className="container-cardsH">
             <div className="cardH">
               <div className="first-content">
                 <span>
-                  <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                  <FontAwesomeIcon icon={faMountain} size="3x" />
                 </span>
               </div>
               <div className="second-content">
@@ -33,7 +48,7 @@ const Habilidades = () => {
             <div className="cardH">
               <div className="first-content">
                 <span>
-                  <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                  <FontAwesomeIcon icon={faHeart} size="3x" />
                 </span>
               </div>
               <div className="second-content">
@@ -44,7 +59,7 @@ const Habilidades = () => {
             <div className="cardH">
               <div className="first-content">
                 <span>
-                  <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                  <FontAwesomeIcon icon={faComments} size="3x" />
                 </span>
               </div>
               <div className="second-content">
@@ -55,7 +70,7 @@ const Habilidades = () => {
             <div className="cardH">
               <div className="first-content">
                 <span>
-                  <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                  <FontAwesomeIcon icon={faHeart} size="3x" />
                 </span>
               </div>
               <div className="second-content">
@@ -66,7 +81,7 @@ const Habilidades = () => {
             <div className="cardH">
               <div className="first-content">
                 <span>
-                  <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                  <FontAwesomeIcon icon={faComments} size="3x" />
                 </span>
               </div>
               <div className="second-content">
@@ -76,51 +91,53 @@ const Habilidades = () => {
           </div>
 
           <div className="container-grid">
-
             <div id="Secondary">
               <h2>Habilidades X</h2>
               <div className="container-cardsM">
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faChalkboardTeacher} size="3x" />{" "}
+                      {/* Ensino */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Comunicação</span>
+                    <span>Ensino</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faBook} size="3x" />{" "}
+                      {/* Conhecimento */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Resiliência</span>
+                    <span>Conhecimento</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faPen} size="3x" /> {/* Escrita */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Liderança</span>
+                    <span>Escrita</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faLightbulb} size="3x" />{" "}
+                      {/* Criatividade */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Empatia</span>
+                    <span>Criatividade</span>
                   </div>
                 </div>
               </div>
@@ -128,11 +145,13 @@ const Habilidades = () => {
 
             <div id="Secondary">
               <h2>Habilidades Z</h2>
+
               <div className="container-cardsM">
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faComments} size="3x" />{" "}
+                      {/* Comunicação */}
                     </span>
                   </div>
                   <div className="second-content">
@@ -143,7 +162,8 @@ const Habilidades = () => {
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faMountain} size="3x" />{" "}
+                      {/* Resiliência */}
                     </span>
                   </div>
                   <div className="second-content">
@@ -154,7 +174,8 @@ const Habilidades = () => {
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faCrown} size="3x" />{" "}
+                      {/* Liderança */}
                     </span>
                   </div>
                   <div className="second-content">
@@ -165,7 +186,8 @@ const Habilidades = () => {
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faHeart} size="3x" />{" "}
+                      {/* Empatia */}
                     </span>
                   </div>
                   <div className="second-content">
@@ -181,49 +203,52 @@ const Habilidades = () => {
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faLightbulb} size="3x" />{" "}
+                      {/* Criatividade */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Comunicação</span>
+                    <span>Criatividade</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faHandshake} size="3x" />{" "}
+                      {/* Colaboração */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Resiliência</span>
+                    <span>Colaboração</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faBrain} size="3x" />{" "}
+                      {/* Pensamento Crítico */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Liderança</span>
+                    <span>Pensamento Crítico</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faRocket} size="3x" />{" "}
+                      {/* Inovação */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Empatia</span>
+                    <span>Inovação</span>
                   </div>
                 </div>
               </div>
             </div>
-
 
             <div id="Secondary">
               <h2>Habilidades R</h2>
@@ -231,50 +256,52 @@ const Habilidades = () => {
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faCode} size="3x" />{" "}
+                      {/* Lógica de Programação */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Comunicação</span>
+                    <span>Lógica de Programação</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faNetworkWired} size="3x" />{" "}
+                      {/* Redes e Sistemas */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Resiliência</span>
+                    <span>Redes e Sistemas</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faDatabase} size="3x" />{" "}
+                      {/* Bancos de Dados */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Liderança</span>
+                    <span>Bancos de Dados</span>
                   </div>
                 </div>
 
                 <div className="cardH">
                   <div className="first-content">
                     <span>
-                      <FontAwesomeIcon icon={faHandBackFist} size="3x" />
+                      <FontAwesomeIcon icon={faCloud} size="3x" />{" "}
+                      {/* Computação em Nuvem */}
                     </span>
                   </div>
                   <div className="second-content">
-                    <span>Empatia</span>
+                    <span>Computação em Nuvem</span>
                   </div>
                 </div>
               </div>
             </div>
-
-            
           </div>
         </div>
       </main>

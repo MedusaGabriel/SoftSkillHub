@@ -44,7 +44,7 @@ function Header() {
             <ul>
               <li><a href="/">Início</a></li>
               <li><a href="/habilidades">Habilidades</a></li>
-              <li><a href="#">Práticas</a></li>
+              <li><a href="/pratica">Práticas</a></li>
               <li><a href="#">Perfil</a></li>
             </ul>
           </nav>

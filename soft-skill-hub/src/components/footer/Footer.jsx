@@ -28,14 +28,14 @@ function Footer() {
       }, 1000);
 
       // Verifica se o usuário está perto do fim da página
-      setShowFooter(scrollPosition > pageHeight - 200); // Animação do footer
+      setShowFooter(pageHeight > window.innerHeight && scrollPosition > pageHeight -200); 
     };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout); // Limpa o timeout quando o componente for desmontado
+      clearTimeout(scrollTimeout); 
     };
   }, []);
 

@@ -3,6 +3,7 @@ import Header from "../src/components/header/Header";
 import Footer from "../src/components/footer/Footer";
 import Home from "../src/pages/home/Home";
 import Cadastro from "./pages/cadastro/Cadastro";
+import Pratica from "./pages/pratica/Pratica";
 import Habilidades from "./pages/habilidades/Habilidades";  
 import "./App.css";
 import Modal from "./components/modal/Modal";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/habilidades" element={<Habilidades />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/pratica" element={<Pratica />} />
         </Routes>
       </div>
       <Footer />
