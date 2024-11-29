@@ -1,62 +1,84 @@
 import "./Pratica.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandBackFist } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Pratica = () => {
-  // Estado para controlar a visibilidade dos elementos
-  const [showAula, setShowAula] = useState(false);
-  const [showEpisodios, setShowEpisodios] = useState(false);
-  const [showAtividade, setShowAtividade] = useState(false);
-
-  // Estado para controlar o progresso da habilidade (de 0% a 100%)
+  // Estado para controlar a visibilidade e progresso
   const [progresso, setProgresso] = useState(0);
-
-  const [aulasConcluidas, setAulasConcluidas] = useState({
-    aula1: 0, 
-    episodio1: 0,
-    episodio2: 0,
-    episodio3: 0,
-    atividade: 0,
+  const [concluidos, setConcluidos] = useState({
+    aula1: false, 
+    episodio1: false,
+    episodio2: false,
+    episodio3: false,
+    atividade: false,
   });
+  const [telaAtual, setTelaAtual] = useState('aulas'); // controla qual tela está visível
+  const [aulas, setAulas] = useState([]); // Estado para armazenar as aulas
+  const [descricao, setDescricao] = useState(""); // Estado para armazenar a descrição da habilidade
+  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+  const [erro] = useState(null); // Estado para controlar erros
 
-  // Função para atualizar o progresso da barra
+  useEffect(() => {
+    // Simulação de dados recebidos da API
+    setTimeout(() => {
+      // Simulando dados de aulas
+      const dadosSimulados = {
+        aulas: [
+          { nome: 'Aula 1: Introdução', episodios: ['Episódio 1', 'Episódio 2', 'Episódio 3'], atividade: 'Atividade 1' },
+          { nome: 'Aula 2: Avançando', episodios: ['Episódio 1', 'Episódio 2', 'Episódio 3'], atividade: 'Atividade 2' }
+        ],
+        descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
+      };
+
+      setAulas(dadosSimulados.aulas); // Dados das aulas
+      setDescricao(dadosSimulados.descricao); // Descrição simulada
+      setLoading(false); // Fim do carregamento
+    }, 1000); // Simulando um tempo de carregamento de 1 segundo
+  }, []); // Esse efeito é executado apenas uma vez após o componente ser montado
+
+  // Função para atualizar o progresso
   const atualizarProgresso = () => {
-    const totalConcluido = Object.values(aulasConcluidas).filter((status) => status === 1).length;
-    const novoProgresso = (totalConcluido / 5) * 100; // 5 porque são 5 etapas
-    setProgresso(novoProgresso);
+    // Calcular o total de conclusões considerando aulas e testes
+    const totalAulas = aulas.length;
+    const totalTestes = aulas.reduce((total, aula) => {
+      return total + aula.episodios.length + (aula.atividade ? 1 : 0);
+    }, 0);
+
+    const totalConcluidos = Object.values(concluidos).filter(status => status).length;
+
+    // O progresso agora depende tanto das aulas quanto dos testes
+    const totalItens = totalAulas + totalTestes; // Total de aulas e testes
+    setProgresso((totalConcluidos / totalItens) * 100); // Calcula a porcentagem de progresso
   };
 
-  // Função para marcar uma aula ou episódio como concluído
+  // Marcar como concluído e atualizar progresso
   const marcarComoConcluido = (item) => {
-    setAulasConcluidas((prev) => {
-      const newAulas = { ...prev, [item]: 1 };
-      atualizarProgresso(); // Atualiza o progresso
-      return newAulas;
+    setConcluidos(prev => {
+      const novosConcluidos = { ...prev, [item]: true };
+      atualizarProgresso();
+      return novosConcluidos;
     });
   };
 
-  // Funções para alternar entre as diferentes fases de aulas e atividades
-  const handleAulaClick = () => {
-    setShowAula(true);
-    setShowEpisodios(false);
-    setShowAtividade(false);
-  };
+  // Navegar entre telas (aulas, episódios, atividades)
+  const mudarTela = (tela) => setTelaAtual(tela);
 
-  const handleEpisodioClick = () => {
-    setShowEpisodios(true);
-    setShowAtividade(false);
-  };
+  if (loading) {
+    return <div>Carregando...</div>; // Exibe enquanto os dados estão sendo carregados
+  }
 
-  const handleAtividadeClick = () => {
-    setShowAtividade(true);
-  };
+  if (erro) {
+    return <div>{erro}</div>; // Exibe erro se houver
+  }
 
-  const handleRetornoAula = () => {
-    setShowAula(false);
-    setShowEpisodios(false);
-    setShowAtividade(false);
-  };
+  // Calculando o total de testes baseado nas aulas
+  const totalTestes = aulas.reduce((total, aula) => {
+    return total + aula.episodios.length + (aula.atividade ? 1 : 0);
+  }, 0);
+
+  // Contabilizando os testes concluídos
+  const testesConcluidos = Object.values(concluidos).filter(status => status).length;
 
   return (
     <div className="container-pratica">
@@ -64,9 +86,7 @@ const Pratica = () => {
         <div className="container-info-status">
           <div className="card-habilidade">
             <div className="first-content">
-              <span>
-                <FontAwesomeIcon icon={faHandBackFist} size="3x" />
-              </span>
+              <span><FontAwesomeIcon icon={faHandBackFist} size="3x" /></span>
             </div>
           </div>
 
@@ -81,7 +101,7 @@ const Pratica = () => {
           <div className="container-test">
             <h4 className="test-title">Testes</h4>
             <div className="test-info">
-              <span className="test-progress">1/6</span>
+              <span className="test-progress">{testesConcluidos}/{totalTestes}</span>
             </div>
           </div>
         </div>
@@ -89,82 +109,53 @@ const Pratica = () => {
         <div className="container-info-status2">
           <div className="container-habilidade">
             <div className="descricao-habilidade">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                ipsa tempore, similique distinctio libero eum repudiandae labore
-                veniam? Officia, ea qui! Quasi totam voluptatum, vero optio
-                dolore consequuntur commodi eos?, Lorem, ipsum dolor sit amet
-                consectetur adipisicing elit. Maxime ipsum sunt atque laudantium
-                nobis cupiditate dolores, repellendus enim neque quibusdam
-                magnam quas assumenda sapiente earum eos sed odio adipisci
-                perspiciatis!
-              </p>
+              <p>{descricao}</p> {/* Exibe a descrição simulada */}
             </div>
           </div>
 
           <div className="container-atividades">
             <h4 className="atividades-title">Aulas</h4>
 
-
-
-
             <div className="atividades-list">
-              {!showAula && !showEpisodios && !showAtividade && (
-                <button className="atividade-item" onClick={handleAulaClick}>
-                  Aula 1 Materia X
+              {telaAtual === 'aulas' && aulas.map((aula, index) => (
+                <button
+                  key={index}
+                  className="atividade-item"
+                  onClick={() => mudarTela('episodios')}
+                >
+                  {aula.nome}
+                </button>
+              ))}
+
+              {telaAtual === 'episodios' && aulas[0].episodios.map((episodio, index) => (
+                <button 
+                  key={index} 
+                  className="atividade-item" 
+                  onClick={() => marcarComoConcluido(`episodio${index + 1}`)}
+                >
+                  {`Marcar ${episodio} como Concluído`}
+                </button>
+              ))}
+
+              {telaAtual === 'episodios' && (
+                <button className="atividade-item" onClick={() => mudarTela('atividade')}>
+                  {aulas[0].atividade}
                 </button>
               )}
 
-              {showAula && (
-                <>
-                  <button className="atividade-item" onClick={handleEpisodioClick}>
-                    Materia X - Estudo 1
-                  </button>
-                  <button className="atividade-item" onClick={handleEpisodioClick}>
-                    Materia X - Estudo 2
-                  </button>
-                  <button className="atividade-item" onClick={handleEpisodioClick}>
-                    Materia X - Estudo 3
-                  </button>
-                  <button className="atividade-item" onClick={handleAtividadeClick}>
-                    Materia X - Atividade
-                  </button>
-                  <button className="atividade-item" onClick={handleRetornoAula}>
-                    Retornar 
-                  </button>
-                </>
-              )}
-
-              {showEpisodios && (
-                <>
-                  <button className="atividade-item" onClick={() => marcarComoConcluido("episodio1")}>
-                    Marcar Episódio 1 como Concluído
-                  </button>
-                  <button className="atividade-item" onClick={() => marcarComoConcluido("episodio2")}>
-                    Marcar Episódio 2 como Concluído
-                  </button>
-                  <button className="atividade-item" onClick={() => marcarComoConcluido("episodio3")}>
-                    Marcar Episódio 3 como Concluído
-                  </button>
-                  <button className="atividade-item" onClick={handleAtividadeClick}>
-                    Atividade
-                  </button>
-                  <button className="atividade-item" onClick={handleRetornoAula}>
-                    Retornar para Seleção de Aula
-                  </button>
-                </>
-              )}
-
-              {showAtividade && (
+              {telaAtual === 'atividade' && (
                 <>
                   <p>Atividade Selecionada!</p>
-                  <button className="atividade-item" onClick={() => marcarComoConcluido("atividade")}>
+                  <button className="atividade-item" onClick={() => marcarComoConcluido('atividade')}>
                     Marcar Atividade como Concluída
                   </button>
-                  <button className="atividade-item" onClick={handleRetornoAula}>
-                    Retornar para Seleção de Aula
-                  </button>
                 </>
+              )}
+
+              {(telaAtual === 'episodios' || telaAtual === 'atividade') && (
+                <button className="atividade-item" onClick={() => mudarTela('aulas')}>
+                  Retornar para Seleção de Aula
+                </button>
               )}
             </div>
           </div>

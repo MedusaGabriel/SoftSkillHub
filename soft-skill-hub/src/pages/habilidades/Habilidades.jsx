@@ -4,28 +4,99 @@ import {
   faMountain,
   faHeart,
   faComments,
-  faCrown,
-  faRocket,
-  faHandshake,
-  faBrain,
-  faLightbulb,
-  faCloud,
-  faDatabase,
-  faNetworkWired,
-  faCode,
-  faPen,
-  faBook,
-  faChalkboardTeacher,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import { createServer } from "miragejs";
 
 const Habilidades = () => {
+  const [skills, setSkills] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedSkill, setSelectedSkill] = useState(null); // Estado para controlar a habilidade no modal
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar o modal
+
+  // Mirage.js (API fake)
+  useEffect(() => {
+    createServer({
+      routes() {
+        this.namespace = "api";
+
+        this.get("/skills", () => [
+          {
+            id: 1,
+            nome: "Liderança",
+            icon: faMountain,
+            descricao:
+              "Habilidade de liderar equipes e tomar decisões eficazes.",
+          },
+          {
+            id: 2,
+            nome: "Trabalho em Equipe",
+            icon: faHeart,
+            descricao: "Capacidade de colaborar e trabalhar bem em grupo.",
+          },
+          {
+            id: 3,
+            nome: "Pensamento Crítico",
+            icon: faComments,
+            descricao:
+              "Habilidade de analisar e resolver problemas de forma lógica.",
+          },
+          {
+            id: 4,
+            nome: "Resiliência",
+            icon: faMountain,
+            descricao: "Capacidade de se adaptar e superar desafios.",
+          },
+          {
+            id: 5,
+            nome: "Empatia",
+            icon: faHeart,
+            descricao: "Compreender e compartilhar os sentimentos dos outros.",
+          },
+          {
+            id: 6,
+            nome: "Comunicação",
+            icon: faComments,
+            descricao:
+              "Habilidade de transmitir informações de forma clara e eficaz.",
+          },
+        ]);
+      },
+    });
+
+    fetch("/api/skills")
+      .then((res) => res.json())
+      .then((data) => setSkills(data));
+  }, []);
+
+  const filteredSkills = skills.filter((skill) =>
+    skill.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const openModal = (skill) => {
+    setSelectedSkill(skill);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedSkill(null);
+    setIsModalOpen(false);
+  };
+
+  const handleAddSkill = () => {
+    if (selectedSkill) {
+      alert(`Você adicionou a habilidade: ${selectedSkill.nome}!`);
+      closeModal(); // Fecha o modal após adicionar
+    }
+  };
+
   return (
     <div>
       <div className="containerHs">
         <div className="container-titleH">
           <h1 id="TituloS">
-            {" "}
-            Bem-vindo a Central de Habilidades da Soft Skills
+            Central de Habilidades
           </h1>
         </div>
       </div>
@@ -33,6 +104,7 @@ const Habilidades = () => {
       <main>
         <div className="skill-container">
           <h2 id="Primary">Principais características mais procuradas:</h2>
+
           <div className="container-cardsH">
             <div className="cardH">
               <div className="first-content">
@@ -90,221 +162,57 @@ const Habilidades = () => {
             </div>
           </div>
 
+          <h2 id="Secondaru">Skills Disponíveis em nosso Banco de Dados</h2>
+
+          <div className="search-container">
+            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+            <input
+              type="text"
+              placeholder="Pesquise uma habilidade..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-bar"
+            />
+          </div>
+
           <div className="container-grid">
-            <div id="Secondary">
-              <h2>Habilidades X</h2>
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faChalkboardTeacher} size="3x" />{" "}
-                      {/* Ensino */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Ensino</span>
-                  </div>
+            {filteredSkills.map((skill) => (
+              <div
+                className="cardH"
+                key={skill.id}
+                onClick={() => openModal(skill)} // Abre o modal com a skill clicada
+              >
+                <div className="first-content">
+                  <span>
+                    <FontAwesomeIcon icon={skill.icon} size="3x" />
+                  </span>
                 </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faBook} size="3x" />{" "}
-                      {/* Conhecimento */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Conhecimento</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faPen} size="3x" /> {/* Escrita */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Escrita</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faLightbulb} size="3x" />{" "}
-                      {/* Criatividade */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Criatividade</span>
-                  </div>
+                <div className="second-content">
+                  <span>{skill.nome}</span>
                 </div>
               </div>
-            </div>
-
-            <div id="Secondary">
-              <h2>Habilidades Z</h2>
-
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faComments} size="3x" />{" "}
-                      {/* Comunicação */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Comunicação</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faMountain} size="3x" />{" "}
-                      {/* Resiliência */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Resiliência</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faCrown} size="3x" />{" "}
-                      {/* Liderança */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Liderança</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faHeart} size="3x" />{" "}
-                      {/* Empatia */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Empatia</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="Secondary">
-              <h2>Habilidades Y</h2>
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faLightbulb} size="3x" />{" "}
-                      {/* Criatividade */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Criatividade</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faHandshake} size="3x" />{" "}
-                      {/* Colaboração */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Colaboração</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faBrain} size="3x" />{" "}
-                      {/* Pensamento Crítico */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Pensamento Crítico</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faRocket} size="3x" />{" "}
-                      {/* Inovação */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Inovação</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="Secondary">
-              <h2>Habilidades R</h2>
-              <div className="container-cardsM">
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faCode} size="3x" />{" "}
-                      {/* Lógica de Programação */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Lógica de Programação</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faNetworkWired} size="3x" />{" "}
-                      {/* Redes e Sistemas */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Redes e Sistemas</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faDatabase} size="3x" />{" "}
-                      {/* Bancos de Dados */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Bancos de Dados</span>
-                  </div>
-                </div>
-
-                <div className="cardH">
-                  <div className="first-content">
-                    <span>
-                      <FontAwesomeIcon icon={faCloud} size="3x" />{" "}
-                      {/* Computação em Nuvem */}
-                    </span>
-                  </div>
-                  <div className="second-content">
-                    <span>Computação em Nuvem</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </main>
+
+      {/* Modal */}
+      {isModalOpen && selectedSkill && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>{selectedSkill.nome}</h3>
+            <p>{selectedSkill.descricao}</p>
+            <div className="modal-buttons">
+              <button onClick={handleAddSkill} className="add-skill-btn">
+                Adicionar
+              </button>
+              <button onClick={closeModal} className="close-modal-btn">
+                Voltar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

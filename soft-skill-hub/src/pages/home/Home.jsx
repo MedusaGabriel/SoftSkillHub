@@ -137,7 +137,7 @@ function Home() {
                   </p>
                 </div>
                 <div className="timeline-image">
-                  <img src="https://via.placeholder.com/150" alt="Imagem 5" />
+                  <img src="../src/assets/imgs/perfil.png" alt="Imagem 5" />
                 </div>
               </div>
             </div>

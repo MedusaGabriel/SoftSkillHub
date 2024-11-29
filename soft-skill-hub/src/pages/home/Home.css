@@ -40,7 +40,7 @@
 .welcome h1 {
   font-size: 5rem;
   /* Ajusta o tamanho da fonte */
-  color: #333;
+  color: #FAFAFA;
   /* Cor do texto */
   font-family: "Inter", sans-serif;
   /* Escolha uma fonte bonita */
@@ -49,7 +49,7 @@
 }
 
 #soft-h1 {
-  color: #9c27b0;
+  color: #E91E63;
   /* Cor do texto */
   font-family: "Inter", sans-serif;
   /* Escolha uma fonte bonita */
@@ -228,39 +228,18 @@
   width: 5px;
   /* Aumenta a espessura da linha */
   height: 100%;
-  /* Altura da linha, cobre toda a altura da timeline */
-  background: linear-gradient(135deg,
+  /*   background: linear-gradient(135deg,
       #9c27b0,
-      #d81b60);
+      #d81b60);*/
+  background: transparent;
   /* Gradiente com as cores solicitadas */
   border-radius: 5px;
   /* Bordas arredondadas */
   z-index: 2;
-  animation: glow 1.5s ease-in-out infinite;
-  /* Animação de brilho suave */
-  box-shadow: 0 0 15px rgba(156, 39, 176, 0.6), 0 0 25px rgba(216, 27, 96, 0.6);
-  /* Efeito de brilho suave */
+
 }
 
-/* Animação de brilho suave linha da timeline*/
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 15px rgba(156, 39, 176, 0.6),
-      0 0 25px rgba(216, 27, 96, 0.6);
-  }
 
-  50% {
-    box-shadow: 0 0 25px rgba(156, 39, 176, 0.8),
-      0 0 35px rgba(216, 27, 96, 0.8);
-    /* Aumenta o brilho no meio da animação */
-  }
-
-  100% {
-    box-shadow: 0 0 15px rgba(156, 39, 176, 0.6),
-      0 0 25px rgba(216, 27, 96, 0.6);
-    /* Retorna ao brilho inicial */
-  }
-}
 
 /* Círculo da timeline ajustado para ser maior que a linha e alinhado com o card e a seta */
 .timeline-circle {
@@ -326,14 +305,12 @@
   justify-content: space-between;
   width: 100%;
   padding: 20px;
-  background-color: transparent;
+  background-color: #FAFAFA;
   backdrop-filter: blur(20px);
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   z-index: 2;
-  /* Garante que os itens fiquem acima da linha */
   transition: transform 0.3s ease-in-out;
-  /* Efeito suave de transição */
 }
 
 .timeline-content:hover {

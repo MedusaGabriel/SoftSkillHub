@@ -2,14 +2,14 @@
    RESPONSIVIDADE
    =================== */
    @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Header se empilha verticalmente */
-        padding: 15px 3%;
+    footer {
+        flex-direction: column; /* Footer se empilha verticalmente */
+        padding: 20px 5%;
     }
-    .navigation ul {
-        flex-direction: column; /* Menu vira uma lista vertical */
+    footer ul {
+        flex-direction: column; /* Menu de redes sociais se empilha */
         align-items: center;
-        gap: 10px; /* Reduz o espaço entre os itens */
+        gap: 15px; /* Espaço entre os itens */
     }
 }
 
@@ -18,138 +18,147 @@
    =================== */
 footer {
     display: flex;
+    flex-direction: row; /* Organiza os elementos em linha */
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Alinha o conteúdo nas extremidades */
     background-color: #e91e63;
-    padding: 20px 0;
+    padding: 20px 40px; /* Padding maior para dar mais espaço */
     color: #ffffff;
-    font-size: 20px;
-    position: fixed;
+    font-size: 18px;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
-    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out;
 }
 
-.footer {
-  text-align: center;
-  padding: 10px 0;
-  color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
+/* Efeito de scroll - mudando a cor e com sombra */
 footer.Scrolling {
-    background-color: #e91e63; /* Muda o fundo ao rolar */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
-    padding: 20px 4%;
+    background-color: #9c27b0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-footer.Scrolling a,
-footer.Scrolling i {
+/* ===================
+   ESTILOS DO CONTEÚDO DO FOOTER
+   =================== */
+.footer__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%; /* Garante que o conteúdo ocupe o máximo de espaço possível */
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer__content p {
+    margin: 0;
+    font-size: 16px; /* Fonte menor para uma melhor leitura */
+    color: #fafafa;
+}
+
+.footer__content span {
+    font-weight: 500;
     color: #ffffff;
 }
 
-footer ul li {
-    display: inline-block;
-    margin: 0 40px;
+/* ===================
+   LISTA DE ITENS NO FOOTER
+   =================== */
+footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Centraliza os itens */
+    gap: 25px; /* Maior espaço entre os itens */
+    margin: 0;
+    padding: 0;
 }
 
 footer ul li a {
-    color: #f5f5f5;
     text-decoration: none;
+    color: #f5f5f5;
+    font-size: 18px; /* Font menor para os links */
+    transition: color 0.3s ease, transform 0.3s ease-in-out; /* Suaviza a transição */
 }
 
-footer ul {
-    list-style-type: none;
+footer ul li a:hover {
+    color: #9c27b0; /* Efeito hover para a cor */
+    transform: scale(1.1); /* Efeito de aumentar o link ao passar o mouse */
 }
-
 
 /* =========================
-   ESTILOS DO FOOTER
+   ESTILOS DOS ÍCONES DE REDES SOCIAIS
    ========================== */
-   #footer {
-    position: fixed; /* O footer ficará fixo na parte inferior da tela */
-    bottom: -150px; /* Começa escondido abaixo da tela */
-    left: 0;
-    width: 100%;
-    background-color: #e91e63; /* Cor de fundo do footer */
-    transition: transform 0.5s ease-in-out; /* Transição suave para o efeito de aparecer */
-  }
-  
-  /* Quando a classe show for adicionada ao footer */
-  #footer.show {
-    transform: translateY(-150px); /* Faz o footer aparecer da parte inferior */
-    transition: transform 0.5s ease-in-out; /* Transição suave para o efeito de aparecer */
-  }
-  
-  .footer__content {
-    display: flex; /* Alinha o texto e os ícones em uma coluna */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    text-align: center; /* Garante que o texto dentro do <p> também será centralizado */
-    padding: 20px 0; /* Adiciona padding para separar o conteúdo do topo e do rodapé */
-  }
-  
-  .footer__content p {
-    margin: 0;
-    font-size: 20px; /* Tamanho da fonte do texto */
-  }
-  
-  .footer__social {
-    margin-top: 10px;
+.footer__social {
     display: flex;
-    justify-content: center; /* Centraliza os ícones de redes sociais */
-  }
-  
-  .footer__social a {
-    margin: 0 15px; /* Espaço maior entre os ícones */
-    color: white; /* Cor dos ícones */
-    font-size: 24px; /* Tamanho dos ícones */
-    transition: color 0.3s; /* Transição suave para a mudança de cor */
-  }
-  
-  .footer__social a:hover {
-    color: #9c27b0; /* Cor ao passar o mouse */
-  }
-  
+    justify-content: center;
+    gap: 20px; /* Mais espaço entre os ícones */
+    margin-top: 10px;
+}
+
+.footer__social a {
+    font-size: 26px;
+    color: #f5f5f5;
+    transition: color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.footer__social a:hover {
+    color: #9c27b0;
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+}
 
 /* =========================
-   ESTILOS DO back-to-top
+   BACK TO TOP (Ícone de voltar ao topo)
    ========================== */
-   .back-to-top {
+.back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     font-size: 40px;
     display: block;
-    animation: bounce 1s ease-in-out infinite; /* Aplica a animação de bounce */
-    transition: all 0.3s ease-in-out;
     z-index: 999;
-  }
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+}
 
-  .back-to-top.show {
-    opacity: 1;  /* Visível quando rolando */
-  }
-  
-  .back-to-top.hide {
-    opacity: 0;  /* Invisível quando pausado */
-  }
+.back-to-top.show {
+    opacity: 1; /* Torna visível quando rolar para baixo */
+    transform: translateY(0);
+}
 
-  @keyframes bounce {
+.back-to-top.hide {
+    opacity: 0; /* Torna invisível quando no topo */
+    transform: translateY(100px);
+}
+
+@keyframes bounce {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px); /* Move para cima */
+        transform: translateY(-10px);
     }
     100% {
-      transform: translateY(0); /* Volta para a posição inicial */
+        transform: translateY(0);
     }
-  }
-  
-  /* Caso a rolagem passe de 100px, remove a animação */
-  .stop-animation {
-    animation: none; /* Desativa a animação */
-  }
+}
+
+.stop-animation {
+    animation: none; /* Desativa animação de bounce */
+}
+
+/* ===================
+   ESTILOS DO FOOTER FIXO
+   =================== */
+#footer {
+    position: fixed;
+    bottom: -150px;
+    left: 0;
+    width: 100%;
+    background-color: #e91e63;
+    transition: transform 0.5s ease-in-out;
+}
+
+#footer.show {
+    transform: translateY(-150px); /* Aparece a partir de baixo */
+}
