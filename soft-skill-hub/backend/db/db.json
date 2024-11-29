@@ -1,0 +1,30 @@
+{
+  "usuarios": [
+    {
+      "id": "9546",
+      "name": "Medusa",
+      "email": "Medusa@gmail.com",
+      "password": "Medusa"
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "nome": "Liderança",
+      "icon": "faMountain",
+      "descricao": "Habilidade de liderar equipes e tomar decisões eficazes."
+    },
+    {
+      "id": 2,
+      "nome": "Trabalho em Equipe",
+      "icon": "faHeart",
+      "descricao": "Capacidade de colaborar e trabalhar bem em grupo."
+    },
+    {
+      "id": 3,
+      "nome": "Pensamento Crítico",
+      "icon": "faComments",
+      "descricao": "Habilidade de analisar e resolver problemas de forma lógica."
+    }
+  ]
+}

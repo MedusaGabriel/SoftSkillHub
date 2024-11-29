@@ -7,7 +7,6 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
-import { createServer } from "miragejs";
 
 const Habilidades = () => {
   const [skills, setSkills] = useState([]);
@@ -15,57 +14,9 @@ const Habilidades = () => {
   const [selectedSkill, setSelectedSkill] = useState(null); // Estado para controlar a habilidade no modal
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar o modal
 
-  // Mirage.js (API fake)
+  // Carregar as habilidades do json-server
   useEffect(() => {
-    createServer({
-      routes() {
-        this.namespace = "api";
-
-        this.get("/skills", () => [
-          {
-            id: 1,
-            nome: "Liderança",
-            icon: faMountain,
-            descricao:
-              "Habilidade de liderar equipes e tomar decisões eficazes.",
-          },
-          {
-            id: 2,
-            nome: "Trabalho em Equipe",
-            icon: faHeart,
-            descricao: "Capacidade de colaborar e trabalhar bem em grupo.",
-          },
-          {
-            id: 3,
-            nome: "Pensamento Crítico",
-            icon: faComments,
-            descricao:
-              "Habilidade de analisar e resolver problemas de forma lógica.",
-          },
-          {
-            id: 4,
-            nome: "Resiliência",
-            icon: faMountain,
-            descricao: "Capacidade de se adaptar e superar desafios.",
-          },
-          {
-            id: 5,
-            nome: "Empatia",
-            icon: faHeart,
-            descricao: "Compreender e compartilhar os sentimentos dos outros.",
-          },
-          {
-            id: 6,
-            nome: "Comunicação",
-            icon: faComments,
-            descricao:
-              "Habilidade de transmitir informações de forma clara e eficaz.",
-          },
-        ]);
-      },
-    });
-
-    fetch("/api/skills")
+    fetch("http://localhost:5000/skills")
       .then((res) => res.json())
       .then((data) => setSkills(data));
   }, []);
@@ -86,25 +37,29 @@ const Habilidades = () => {
 
   const handleAddSkill = () => {
     if (selectedSkill) {
+      const userSkills = JSON.parse(localStorage.getItem("userSkills")) || [];
+  
+      if (!userSkills.some((skill) => skill.id === selectedSkill.id)) {
+        userSkills.push(selectedSkill);
+        localStorage.setItem("userSkills", JSON.stringify(userSkills)); 
+        
+      }
+  
       alert(`Você adicionou a habilidade: ${selectedSkill.nome}!`);
-      closeModal(); // Fecha o modal após adicionar
+      closeModal(); 
     }
   };
-
   return (
     <div>
       <div className="containerHs">
         <div className="container-titleH">
-          <h1 id="TituloS">
-            Central de Habilidades
-          </h1>
+          <h1 id="TituloS">Central de Habilidades</h1>
         </div>
       </div>
 
       <main>
         <div className="skill-container">
           <h2 id="Primary">Principais características mais procuradas:</h2>
-
           <div className="container-cardsH">
             <div className="cardH">
               <div className="first-content">
@@ -162,7 +117,7 @@ const Habilidades = () => {
             </div>
           </div>
 
-          <h2 id="Secondaru">Skills Disponíveis em nosso Banco de Dados</h2>
+          <h2 id="Secondary">Skills Disponíveis em nosso Banco de Dados</h2>
 
           <div className="search-container">
             <FontAwesomeIcon icon={faSearch} className="search-icon" />
@@ -180,11 +135,11 @@ const Habilidades = () => {
               <div
                 className="cardH"
                 key={skill.id}
-                onClick={() => openModal(skill)} // Abre o modal com a skill clicada
+                onClick={() => openModal(skill)}
               >
                 <div className="first-content">
                   <span>
-                    <FontAwesomeIcon icon={skill.icon} size="3x" />
+                    <FontAwesomeIcon icon={faMountain} size="3x" />
                   </span>
                 </div>
                 <div className="second-content">
@@ -201,7 +156,12 @@ const Habilidades = () => {
         <div className="modal-overlay">
           <div className="modal-content">
             <h3>{selectedSkill.nome}</h3>
-            <p>{selectedSkill.descricao}</p>
+            <p>
+              {selectedSkill.descricao
+                ? selectedSkill.descricao
+                : "Descrição não disponível"}
+            </p>{" "}
+            {/* Verificação de conteúdo */}
             <div className="modal-buttons">
               <button onClick={handleAddSkill} className="add-skill-btn">
                 Adicionar

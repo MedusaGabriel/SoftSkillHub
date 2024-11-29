@@ -25,20 +25,19 @@ const Modal = ({ isOpen, onClose }) => {
 
   React.useEffect(() => {
     if (!isOpen) {
-      setIsClosing(false); // Inicia a animação de fade-out
+      setIsClosing(false); 
       setTimeout(() => {
-        setIsClosing(false); // Reseta o estado após a animação
-      }, 500); // Tempo de duração da animação (500ms)
+        setIsClosing(false);
+      }, 500); 
     }
   }, [isOpen]);
 
-  if (!isOpen && !isClosing) return null; // Retorna nulo se o modal estiver fechado
+  if (!isOpen && !isClosing) return null; 
 
   const handleModalClick = (e) => {
-    e.stopPropagation(); // Impede o fechamento do modal quando clicado no conteúdo
+    e.stopPropagation(); 
   };
 
-  // Função para capturar mudanças nos inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -47,25 +46,30 @@ const Modal = ({ isOpen, onClose }) => {
     });
   };
 
-  // Função para enviar os dados do cadastro ao back-end
+ 
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage(""); // Limpa mensagens anteriores
+    setMessage(""); 
 
     try {
-      const response = await fetch("/api/cadastro", {
-        method: "POST", // Envia como POST
+      const response = await fetch("http://localhost:5000/usuarios", {
+        method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData), // Envia os dados do formulário
+        body: JSON.stringify(formData), 
       });
 
       const result = await response.json();
 
       if (response.ok) {
         setMessage("Cadastro realizado com sucesso!");
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+        });
       } else {
         setMessage(result.message || "Erro ao cadastrar.");
       }
@@ -76,30 +80,28 @@ const Modal = ({ isOpen, onClose }) => {
     }
   };
 
-  // Função para enviar os dados de login ao back-end
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage(""); // Limpa mensagens anteriores
-
+    setMessage(""); 
+  
     try {
-      const response = await fetch("/api/login", {
-        method: "POST", // Envia como POST
+      const response = await fetch(`http://localhost:5000/usuarios?email=${formData.email}&password=${formData.password}`, {
+        method: "GET",  
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }), // Envia email e senha para o login
       });
-
+  
       const result = await response.json();
-
-      if (response.ok) {
+  
+      if (result.length > 0) {
+        // Armazenando o nome do usuário no localStorage
+        localStorage.setItem("userName", result[0].name);  // Armazenando o nome do primeiro usuário encontrado
+        
         setMessage("Login bem-sucedido!");
       } else {
-        setMessage(result.message || "Erro ao fazer login.");
+        setMessage("Email ou senha inválidos.");
       }
     } catch {
       setMessage("Erro na comunicação com o servidor.");
@@ -111,7 +113,7 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <div
       className={`wrapper-container ${isOpen ? 'fade-in' : 'fade-out'}`}
-      onClick={onClose}  // Fecha o modal se clicar na área externa
+      onClick={onClose}  
     >
       <div
         className={`wrapper ${isOpen ? 'fade-in' : 'fade-out'} ${isRegister ? 'active' : ''}`}

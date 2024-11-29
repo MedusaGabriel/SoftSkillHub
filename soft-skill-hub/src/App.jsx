@@ -16,7 +16,7 @@ function App() {
       <Modal  />
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/habilidades" element={<Habilidades />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/pratica" element={<Pratica />} />

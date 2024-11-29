@@ -42,7 +42,7 @@ function Header() {
           {/* Navegação */}
           <nav className="navigation">
             <ul>
-              <li><a href="/">Início</a></li>
+              <li><a href="/home">Home</a></li>
               <li><a href="/habilidades">Habilidades</a></li>
               <li><a href="/pratica">Práticas</a></li>
               <li><a href="/perfil">Perfil</a></li>
