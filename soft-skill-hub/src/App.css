@@ -1,40 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '../src/components/global/themes.css';
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-   /* background-image: url("../src/assets/imgs/background.jpg");*/
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     place-items: center;
     min-height: 100vh;
-    color: #fff;
-    background-color: #333;
-  }
+    color: var(--text-highlight);
+    background-color: var(--background-primary);
+}
 
-  .main-content{
+.main-content {
     flex-grow: 1;
     width: 100%;
     padding: 20px;
 }
 
-
-
 * {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: auto;
     box-sizing: border-box;
- 
 }
 
-.flex{
+.flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-
