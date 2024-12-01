@@ -193,7 +193,6 @@ function Home() {
           <section className="home-feedback">
             <h2>Comentários de nossos usuários</h2>
             <div className="home-comments">
-              {/* Exemplo de comentário */}
               <div className="home-comment">
                 <p>
                   Esse site mudou completamente como eu encaro trabalho em
@@ -212,25 +211,24 @@ function Home() {
 
               <div className="home-comment">
                 <p>
-                  Adorei a forma prática de desenvolver minhas soft skills.
-                  Muito intuitivo!
-                  <strong> - Ana M.</strong>
+                Um verdadeiro divisor de águas na minha vida profissional. 
+                Agradeço a toda a equipe!
+                  <strong> - Leonardo F.</strong>
                 </p>
               </div>
 
               <div className="home-comment">
                 <p>
-                  Adorei a forma prática de desenvolver minhas soft skills.
-                  Muito intuitivo!
-                  <strong> - Ana M.</strong>
+                  Minha liderança melhorou 100%! Sinto que agora minha equipe está mais unida.
+                  <strong> - Fernanda G.</strong>
                 </p>
               </div>
 
               <div className="home-comment">
                 <p>
-                  Adorei a forma prática de desenvolver minhas soft skills.
-                  Muito intuitivo!
-                  <strong> - Ana M.</strong>
+                Ferramentas muito úteis e conteúdos bem didáticos. 
+                Estou mais confiante no meu dia a dia profissional.
+                  <strong> - Priscila R.</strong>
                 </p>
               </div>
             </div>
