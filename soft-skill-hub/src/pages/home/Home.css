@@ -44,7 +44,7 @@ body {
 }
 
 #soft-h1 {
-  color: var(--bluecolor);
+  color: var(--darkcolor);
   font-family: "Inter", sans-serif;
   animation: slide-in 1.5s ease-out;
   animation: repeat;
@@ -52,7 +52,7 @@ body {
 
 .welcome p {
   font-size: 1.5rem;
-  color: var(--bluecolor);
+  color: var(--darkcolor);
   margin-top: 10px;
 }
 
@@ -88,8 +88,8 @@ body {
 .home-card-content {
   width: 100%;
   height: 100%;
-  background-color: var(--bluecolor);
-  box-shadow: 0px 4px 6px var(--blueshadow), 0px 1px 3px var(--blueshadow);
+  background-color: var(--darkcolor);
+  box-shadow: 0px 4px 6px var(--darkshadow), 0px 1px 3px var(--darkshadow);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -102,6 +102,9 @@ body {
 
 .home-card-content p {
   line-height: 1.2;
+  font-size: 0.9em;
+  margin-top: 10px;
+  font-weight: 300;
 }
 
 .home-card-content:hover {
@@ -117,7 +120,8 @@ body {
 
 .home-card-content p {
   color: var(--whitecolor);
-  font-size: 1em;
+  line-height: 1.2;
+  font-size: 0.9em;
   margin-top: 10px;
   font-weight: 300;
 }
@@ -128,21 +132,15 @@ body {
 }
 
 .intro {
-  background-color: transparent;
-  backdrop-filter: blur(20px);
-  box-shadow: 0px 4px 6px var(--shadow-dark), 0px 1px 3px var(--shadow-dark);
-  background: var(--darkcolor);
-  padding: 20px;
-  margin: 40px auto; /* Centraliza horizontalmente */
-  border-radius: 8px;
+  margin: 80px auto 30px auto;
   text-align: center;
   width: 70%;
 }
 
 .intro h2 {
-  color: var(--whitecolor);
-  font-size: 1.8em;
-  margin-bottom: 10px;
+  color: var(--blackcolor);
+  font-size: 2em;
+  font-family: poppins;
 }
 
 .container-Home .content,
@@ -333,21 +331,23 @@ img[alt="Imagem 2"] {
 }
 
 .cards-intro {
-  margin-top: 80px;
-  background-color: transparent;
-  backdrop-filter: blur(20px);
-  box-shadow: 0px 4px 6px var(--shadow-dark), 0px 1px 3px var(--shadow-dark);
-  background: var(--darkcolor);
-  padding: 20px;
-  margin: 40px auto;
-  border-radius: 8px;
   text-align: center;
-  width: 70%;
+}
+
+.background-color {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  background-color: var(--bluecolor);
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
 }
 
 .cards-intro h2 {
   color: var(--whitecolor);
-  font-size: 1.8em;
+  font-size: 2em;
+  font-family: poppins;
 }
 
 .home-feedback {

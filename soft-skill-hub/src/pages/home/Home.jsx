@@ -38,6 +38,10 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
+  const handleClick = () => {
+    // Lógica para o clique
+  };
+
   return (
     <>
       <div className="welcome">
@@ -58,7 +62,7 @@ function Home() {
 
             <div className="timeline-item content">
               <div className="timeline-circle">1</div>
-              <div className="timeline-content">
+              <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-text">
                   <h3>Cadastro</h3>
                   <p>
@@ -71,12 +75,12 @@ function Home() {
                 <div className="timeline-image">
                   <img src="../src/assets/imgs/cadastro.png" alt="Imagem 1" />
                 </div>
-              </div>
+                </button>
             </div>
 
             <div className="timeline-item content2">
               <div className="timeline-circle">2</div>
-              <div className="timeline-content">
+              <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-image">
                   <img src="../src/assets/imgs/conteudo.png" alt="Imagem 2" />
                 </div>
@@ -89,12 +93,12 @@ function Home() {
                     Habilidades.
                   </p>
                 </div>
-              </div>
+                </button>
             </div>
 
             <div className="timeline-item content">
               <div className="timeline-circle">3</div>
-              <div className="timeline-content">
+              <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-text">
                   <h3>Central de Habilidades</h3>
                   <p>
@@ -106,12 +110,12 @@ function Home() {
                 <div className="timeline-image">
                   <img src="../src/assets/imgs/skills.png" alt="Imagem 3" />
                 </div>
-              </div>
+                </button>
             </div>
 
             <div className="timeline-item content2">
               <div className="timeline-circle">4</div>
-              <div className="timeline-content">
+              <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-image">
                   <img src="../src/assets/imgs/pratica.png" alt="Imagem 4" />
                 </div>
@@ -123,12 +127,12 @@ function Home() {
                     já avançou em cada uma delas.
                   </p>
                 </div>
-              </div>
+                </button>
             </div>
 
             <div className="timeline-item content">
               <div className="timeline-circle">5</div>
-              <div className="timeline-content">
+              <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-text">
                   <h3>Perfil</h3>
                   <p>
@@ -139,98 +143,100 @@ function Home() {
                 <div className="timeline-image">
                   <img src="../src/assets/imgs/perfil.png" alt="Imagem 5" />
                 </div>
-              </div>
+                </button>
             </div>
           </div>
-
+          <div className="background-color">
           <section className="cards-intro">
             <h2>Por que escolher nosso site? </h2>
           </section>
 
           <div className="home-cards">
             <div className="home-card">
-              <div className="home-card-content">
+            <button className="home-card-content" onClick={handleClick}>
                 <FontAwesomeIcon icon={faDumbbell} size="3x" />
                 <h3>Prática</h3>
                 <p>
                   Desafios que aprimoram suas habilidades de forma prática e
                   divertida.
                 </p>
-              </div>
+                </button>
             </div>
 
             <div className="home-card">
-              <div className="home-card-content">
+            <button className="home-card-content" onClick={handleClick}>
                 <FontAwesomeIcon icon={faPeopleGroup} size="3x" />
                 <h3>Trabalho de Equipe</h3>
                 <p>
                   Colabore e desenvolva suas habilidades de interação em grupo.
                 </p>
-              </div>
+                </button>
             </div>
 
             <div className="home-card">
-              <div className="home-card-content">
+            <button className="home-card-content" onClick={handleClick}>
                 <FontAwesomeIcon icon={faHandBackFist} size="3x" />
                 <h3>Resiliência</h3>
                 <p>
                   Enfrente desafios que ajudam você a se tornar mais resiliente.
                 </p>
-              </div>
+                </button>
             </div>
 
             <div className="home-card">
-              <div className="home-card-content">
+            <button className="home-card-content" onClick={handleClick}>
                 <FontAwesomeIcon icon={faCalendarCheck} size="3x" />
                 <h3>CheckList</h3>
                 <p>
                   Organize suas metas e monitorize seu progresso com facilidade.
                 </p>
-              </div>
+                </button>
             </div>
+          </div>
+
           </div>
 
           <section className="home-feedback">
             <h2>Comentários de nossos usuários</h2>
             <div className="home-comments">
-              <div className="home-comment">
+            <button className="home-comment" onClick={handleClick}>
                 <p>
                   Esse site mudou completamente como eu encaro trabalho em
                   equipe. Recomendo demais!
                   <strong> - João S.</strong>
                 </p>
-              </div>
+                </button>
 
-              <div className="home-comment">
+              <button className="home-comment" onClick={handleClick}>
                 <p>
                   Adorei a forma prática de desenvolver minhas soft skills.
                   Muito intuitivo!
                   <strong> - Ana M.</strong>
                 </p>
-              </div>
+              </button>
 
-              <div className="home-comment">
+              <button className="home-comment" onClick={handleClick}>
                 <p>
                 Um verdadeiro divisor de águas na minha vida profissional. 
                 Agradeço a toda a equipe!
                   <strong> - Leonardo F.</strong>
                 </p>
-              </div>
+              </button>
 
-              <div className="home-comment">
+              <button className="home-comment" onClick={handleClick}>
                 <p>
                   Minha liderança melhorou 100%! Sinto que agora minha equipe está mais unida.
                   <strong> - Fernanda G.</strong>
                 </p>
-              </div>
+              </button>
 
-              <div className="home-comment">
+              <button className="home-comment" onClick={handleClick}>
                 <p>
                 Ferramentas muito úteis e conteúdos bem didáticos. 
                 Estou mais confiante no meu dia a dia profissional.
                   <strong> - Priscila R.</strong>
                 </p>
-              </div>
+              </button>
             </div>
           </section>
 
