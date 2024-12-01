@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "../src/components/header/Header";
 import Footer from "../src/components/footer/Footer";
 import Home from "../src/pages/home/Home";
@@ -16,6 +16,7 @@ function App() {
       <Modal  />
       <div className="main-content">
         <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/habilidades" element={<Habilidades />} />
           <Route path="/cadastro" element={<Cadastro />} />

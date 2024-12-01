@@ -6,11 +6,11 @@ body {
 }
 
 .container-Home {
-  display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400vh;
+  height: auto;
   gap: 20px;
 }
 
@@ -33,6 +33,7 @@ body {
   height: 100vh;
   text-align: center;
   flex-direction: column;
+  background-color: var(--bluecolor);
 }
 
 .welcome h1 {
@@ -69,10 +70,10 @@ body {
 
 .home-cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; 
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 30px;
+  margin: 30px auto;
 }
 
 .home-card {
@@ -132,9 +133,10 @@ body {
   box-shadow: 0px 4px 6px var(--shadow-dark), 0px 1px 3px var(--shadow-dark);
   background: var(--darkcolor);
   padding: 20px;
-  margin-top: 40px;
+  margin: 40px auto; /* Centraliza horizontalmente */
   border-radius: 8px;
   text-align: center;
+  width: 70%;
 }
 
 .intro h2 {
@@ -236,7 +238,7 @@ body {
 }
 
 .timeline-item {
-  padding-top: 30px;
+  margin: 30px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -337,14 +339,15 @@ img[alt="Imagem 2"] {
   box-shadow: 0px 4px 6px var(--shadow-dark), 0px 1px 3px var(--shadow-dark);
   background: var(--darkcolor);
   padding: 20px;
+  margin: 40px auto;
   border-radius: 8px;
   text-align: center;
+  width: 70%;
 }
 
 .cards-intro h2 {
   color: var(--whitecolor);
   font-size: 1.8em;
-  margin-bottom: 10px;
 }
 
 .home-feedback {
@@ -354,8 +357,11 @@ img[alt="Imagem 2"] {
   margin-top: 80px;
   background: linear-gradient(135deg, var(--darkcolor), var(--darkcolor));
   padding: 30px;
+  margin: 80px auto 0;
   border-radius: 10px;
   box-shadow: 0 4px 15px var(--shadow-dark);
+  width: 70%;
+  text-align: center;
 }
 
 .home-feedback h2 {
@@ -425,7 +431,9 @@ img[alt="Imagem 2"] {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 80px;
+  width: 30%;
+  margin: 80px auto;
+  margin-bottom: 200px;
   padding: 40px 20px;
   background: linear-gradient(135deg, var(--darkcolor), var(--darkcolor));
   border-radius: 12px;
@@ -449,6 +457,7 @@ img[alt="Imagem 2"] {
   color: var(--whitecolor);
   background-color: var(--bluecolor);
   border: none;
+  width: 60%;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;

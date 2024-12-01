@@ -35,7 +35,7 @@ function Footer() {
   return (
     <footer id="footer" className={`footer ${showFooter ? 'show' : ''}`}>
       <div className="footer__content">
-        <p>Feito com ❤️ por Soft Skill Hub</p>
+        <p>Desenvolvido por Soft Skill Hub ©</p>
         
         {/* Seção de ícones das redes sociais */}
         <div className="footer__social">

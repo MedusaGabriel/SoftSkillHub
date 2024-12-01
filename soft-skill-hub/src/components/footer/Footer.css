@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '../../components/global/themes.css';
+
 /* ===================
    RESPONSIVIDADE
    =================== */
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
     footer {
         flex-direction: column; /* Footer se empilha verticalmente */
         padding: 20px 5%;
@@ -21,45 +24,46 @@ footer {
     flex-direction: row; /* Organiza os elementos em linha */
     align-items: center;
     justify-content: space-between; /* Alinha o conteúdo nas extremidades */
-    background-color: #e91e63;
+    background-color: var(--darkcolor);
     padding: 20px 40px; /* Padding maior para dar mais espaço */
-    color: #ffffff;
+    color: var(--whitecolor);
     font-size: 18px;
+    font-family: 'Poppins', sans-serif;
     position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    box-shadow: 0 4px 10px var(--shadow-dark); /* Sombra mais suave */
     transition: background-color 0.3s ease, transform 0.3s ease-in-out;
 }
 
 /* Efeito de scroll - mudando a cor e com sombra */
 footer.Scrolling {
-    background-color: #9c27b0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background-color: var(--darkcolor);
+    box-shadow: 0 4px 15px var(--shadow-dark);
 }
 
 /* ===================
    ESTILOS DO CONTEÚDO DO FOOTER
    =================== */
 .footer__content {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%; /* Garante que o conteúdo ocupe o máximo de espaço possível */
-    text-align: center;
     padding: 10px 0;
 }
 
 .footer__content p {
     margin: 0;
     font-size: 16px; /* Fonte menor para uma melhor leitura */
-    color: #fafafa;
+    color: var(--whitecolor);
 }
 
 .footer__content span {
     font-weight: 500;
-    color: #ffffff;
+    color: var(--whitecolor);
 }
 
 /* ===================
@@ -76,13 +80,13 @@ footer ul {
 
 footer ul li a {
     text-decoration: none;
-    color: #f5f5f5;
+    color: var(--whitecolor);
     font-size: 18px; /* Font menor para os links */
     transition: color 0.3s ease, transform 0.3s ease-in-out; /* Suaviza a transição */
 }
 
 footer ul li a:hover {
-    color: #9c27b0; /* Efeito hover para a cor */
+    color: var(--darkcolor); /* Efeito hover para a cor */
     transform: scale(1.1); /* Efeito de aumentar o link ao passar o mouse */
 }
 
@@ -90,20 +94,20 @@ footer ul li a:hover {
    ESTILOS DOS ÍCONES DE REDES SOCIAIS
    ========================== */
 .footer__social {
+    width: 10%;
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Mais espaço entre os ícones */
-    margin-top: 10px;
+    justify-content: flex-end;
+    gap: 2px; /* Espaçamento entre os ícones */
 }
 
 .footer__social a {
-    font-size: 26px;
-    color: #f5f5f5;
-    transition: color 0.3s ease, transform 0.3s ease-in-out;
+    color: var(--whitecolor); /* Cor dos ícones */
+    text-decoration: none; /* Remove sublinhado dos links */
+    font-size: 20px; /* Tamanho dos ícones */
 }
 
 .footer__social a:hover {
-    color: #9c27b0;
+    color: var(--bluecolor);
     transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
 }
 
@@ -155,7 +159,7 @@ footer ul li a:hover {
     bottom: -150px;
     left: 0;
     width: 100%;
-    background-color: #e91e63;
+    background-color: var(--darkcolor);
     transition: transform 0.5s ease-in-out;
 }
 

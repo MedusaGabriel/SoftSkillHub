@@ -135,6 +135,28 @@ header ul li a:hover {
 }
 
 /* ===================
+   ICONE USER (IconUser)
+   =================== */
+.IconUser {
+    font-size: 2em; /* Tamanho do ícone */
+    color: #fafafa; /* Cor padrão */
+    background-color: transparent;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer; /* Cursor de pointer ao passar sobre o ícone */
+}
+
+.IconUser:hover {
+    color: #e91e63; /* Cor no hover */
+    transform: scale(1.2); /* Aumenta o ícone no hover */
+}
+
+.IconUser:focus {
+    outline: none; 
+    color: #e91e63;
+    background-color: transparent;
+}
+
+/* ===================
    BOTÃO
    =================== */
 button {
