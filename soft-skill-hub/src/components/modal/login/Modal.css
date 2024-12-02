@@ -134,7 +134,7 @@
   transform: translateY(-50%);
   font-size: 1em;
   color: var(--whitecolor);
-  font-weight: 500;
+  font-weight: 200;
   pointer-events: none;
   transition: 0.5s;
 }

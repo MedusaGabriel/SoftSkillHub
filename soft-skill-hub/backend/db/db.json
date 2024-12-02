@@ -5,30 +5,75 @@
       "name": "Medusa",
       "email": "Medusa@gmail.com",
       "password": "Medusa",
-      "skillsConcluidas": [1, 2]  
+      "skillsConcluidas": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "f35c",
+      "name": "gabriel",
+      "email": "b13lsantana@gmail.com",
+      "password": "vovo32414494"
     }
   ],
   "skills": [
     {
       "id": 1,
-      "nome": "Liderança",
-      "icon": "faMountain",
-      "descricao": "Habilidade de liderar equipes e tomar decisões eficazes.",
-      "aula": "Aula 1"
+      "nome": "Skill 1",
+      "descricao": "Descrição da Skill 1",
+      "aula": "Aula 1",
+      "icon": "faMountain"
     },
     {
       "id": 2,
-      "nome": "Trabalho em Equipe",
-      "icon": "faHeart",
-      "descricao": "Capacidade de colaborar e trabalhar bem em grupo.",
-      "aula": "Aula 1"
+      "nome": "Skill 2",
+      "descricao": "Descrição da Skill 2",
+      "aula": "Aula 2",
+      "icon": "faHeart"
     },
     {
       "id": 3,
-      "nome": "Pensamento Crítico",
-      "icon": "faComments",
-      "descricao": "Habilidade de analisar e resolver problemas de forma lógica.",
-      "aula": "Aula 1"
+      "nome": "Skill 3",
+      "descricao": "Descrição da Skill 3",
+      "aula": "Aula 3",
+      "icon": "faComments"
+    },
+    {
+      "id": 4,
+      "nome": "Skill 4",
+      "descricao": "Descrição da Skill 4",
+      "aula": "Aula 4",
+      "icon": "faBook"
+    },
+    {
+      "id": 5,
+      "nome": "Skill 5",
+      "descricao": "Descrição da Skill 5",
+      "aula": "Aula 5",
+      "icon": "faCog"
+    },
+    {
+      "id": 6,
+      "nome": "Skill 6",
+      "descricao": "Descrição da Skill 6",
+      "aula": "Aula 6",
+      "icon": "faUser"
+    },
+    {
+      "id": 7,
+      "nome": "Skill 7",
+      "descricao": "Descrição da Skill 7",
+      "aula": "Aula 7",
+      "icon": "faLightbulb"
+    },
+    {
+      "id": 8,
+      "nome": "Skill 8",
+      "descricao": "Descrição da Skill 8",
+      "aula": "Aula 8",
+      "icon": "faLaptop"
     }
   ]
+  
 }

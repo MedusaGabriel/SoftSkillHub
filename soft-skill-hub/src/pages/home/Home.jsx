@@ -246,6 +246,7 @@ function Home() {
               Cadastre-se
             </Link>
           </section>
+
         </main>
       </div>
     </>
