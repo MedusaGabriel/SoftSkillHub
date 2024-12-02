@@ -56,6 +56,7 @@ footer.Scrolling {
 }
 
 .footer__content p {
+    text-align: center;
     margin: 0;
     font-size: 16px; /* Fonte menor para uma melhor leitura */
     color: var(--whitecolor);

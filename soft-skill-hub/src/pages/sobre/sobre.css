@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-.container-Home {
+.container-Sobre {
   flex: 1;
   width: 100%;
   display: flex;
@@ -19,7 +19,7 @@ body {
   gap: 20px;
 }
 
-.welcome {
+.welcome-Sobre {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.text-container {
+.text-container-Sobre {
   background-color: var(--darkcolor);
   padding: 20px;
   border-radius: 10px;
@@ -42,17 +42,9 @@ body {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.text-container:hover {
+.text-container-Sobre:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.welcome h1 {
-  font-size: 4rem;
-  color: var(--whitecolor);
-  font-family: "Inter", sans-serif;
-  animation: slide-in 1s ease-out;
-  margin-bottom: 20px;
 }
 
 #soft-h1 {
@@ -62,7 +54,7 @@ body {
   animation: repeat;
 }
 
-.welcome p {
+.welcome-Sobre p {
   font-size: 1.2rem;
   color: var(--whitecolor);
   margin-top: 10px;
@@ -70,7 +62,7 @@ body {
   line-height: 1.5;
 }
 
-.footer {
+.footer-Sobre {
   background-color: var(--darkcolor);
   color: var(--whitecolor);
   text-align: center;
@@ -80,20 +72,20 @@ body {
   bottom: 0;
 }
 
-.social-icons {
+.social-icons-Sobre {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 10px;
 }
 
-.social-icons a {
+.social-icons-Sobre a {
   color: var(--whitecolor);
   font-size: 1.5rem;
   transition: color 0.3s;
 }
 
-.social-icons a:hover {
+.social-icons-Sobre a:hover {
   color: var(--lightbluecolor);
 }
 
