@@ -39,10 +39,11 @@ function Sobre() {
       <div className="sobre-welcome">
         <h1>SOBRE <span>NÓS</span> </h1>
         <p id="sobreP">
-          O Soft Skills Hub é uma plataforma dedicada ao desenvolvimento de
-          habilidades interpessoais. Nosso objetivo é ajudar você a aprimorar
-          suas competências por meio de desafios práticos, reflexão e
-          aprendizado contínuo.
+        O Soft Skills Hub é uma plataforma criada para impulsionar o desenvolvimento das suas habilidades interpessoais, 
+        essenciais para o sucesso tanto no ambiente profissional quanto pessoal. Nosso compromisso é oferecer um espaço dinâmico e interativo onde você pode aprimorar 
+        competências-chave como comunicação, empatia, liderança, resolução de conflitos e trabalho em equipe. Através de desafios práticos, reflexões profundas e 
+        recursos de aprendizado contínuo, buscamos proporcionar uma jornada enriquecedora, permitindo que você evolua constantemente e se destaque em diversos contextos. 
+        Seja para avançar na sua carreira ou para promover um crescimento pessoal significativo, o Soft Skills Hub está aqui para apoiar cada passo do seu desenvolvimento.
         </p>
       </div>
 

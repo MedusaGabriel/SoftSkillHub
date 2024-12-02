@@ -144,7 +144,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 900px;
+  height: 350px;
   padding: 20px;
   background: var(--darkcolor);
   backdrop-filter: blur(20px);
@@ -153,6 +154,7 @@ body {
   z-index: 2;
   transition: transform 0.3s ease-in-out;
   font-family: 'Poppins', sans-serif;
+  overflow:hidden;
 }
 
 .sobre-timeline-content:hover {
@@ -214,6 +216,9 @@ body {
 
 .sobre-timeline-image {
   width: 60%;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .sobre-timeline-image img {
@@ -227,4 +232,17 @@ img[alt="Imagem 2"] {
   height: auto;
   border-radius: 8px;
   object-fit: contain;
+}
+
+
+
+#sobreP {
+  text-align: justify;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px; 
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 20px auto; 
 }
