@@ -54,7 +54,6 @@
   align-items: center;
   min-height: 100vh;
   color: var(--darkcolor);
-  padding: 20px;
   text-align: center;
   overflow: auto; /* Garante que animações não "transbordem" */
 }

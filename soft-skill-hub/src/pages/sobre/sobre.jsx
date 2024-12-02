@@ -56,7 +56,6 @@ function Sobre() {
             <div className="sobre-timeline-line"></div>
 
             <div className="sobre-timeline-item sobre-content">
-              <div className="sobre-timeline-circle">1</div>
               <button className="sobre-timeline-content" onClick={handleClick}>
                 <div className="sobre-timeline-text">
                   <h3>Gabriel The Great Wizard Cat Fat</h3>
@@ -73,7 +72,6 @@ function Sobre() {
             </div>
 
             <div className="sobre-timeline-item sobre-content2">
-              <div className="sobre-timeline-circle">2</div>
               <button className="sobre-timeline-content" onClick={handleClick}>
                 <div className="sobre-timeline-image">
                   <img src="../src/assets/anderson.png" alt="Imagem 2" />
@@ -91,7 +89,6 @@ function Sobre() {
             </div>
 
             <div className="sobre-timeline-item sobre-content">
-              <div className="sobre-timeline-circle">3</div>
               <button className="sobre-timeline-content" onClick={handleClick}>
                 <div className="sobre-timeline-text">
                   <h3>Ryan Nunes </h3>
@@ -108,7 +105,6 @@ function Sobre() {
             </div>
 
             <div className="sobre-timeline-item sobre-content2">
-              <div className="sobre-timeline-circle">4</div>
               <button className="sobre-timeline-content" onClick={handleClick}>
                 <div className="sobre-timeline-image">
                   <img src="../src/assets/brian.png" alt="Imagem 4" />
