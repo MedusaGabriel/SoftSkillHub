@@ -73,7 +73,7 @@ function Home() {
                   </p>
                 </div>
                 <div className="timeline-image">
-                  <img src="../src/assets/imgs/cadastro.png" alt="Imagem 1" />
+                  <img src="../src/assets/cadastro.png" alt="Imagem 1" />
                 </div>
                 </button>
             </div>
@@ -82,7 +82,7 @@ function Home() {
               <div className="timeline-circle">2</div>
               <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-image">
-                  <img src="../src/assets/imgs/conteudo.png" alt="Imagem 2" />
+                  <img src="../src/assets/conteudo.png" alt="Imagem 2" />
                 </div>
                 <div className="timeline-text2">
                   <h3>Apresentação ao Conteúdo</h3>
@@ -108,7 +108,7 @@ function Home() {
                   </p>
                 </div>
                 <div className="timeline-image">
-                  <img src="../src/assets/imgs/skills.png" alt="Imagem 3" />
+                  <img src="../src/assets/skills.png" alt="Imagem 3" />
                 </div>
                 </button>
             </div>
@@ -117,7 +117,7 @@ function Home() {
               <div className="timeline-circle">4</div>
               <button className="timeline-content" onClick={handleClick}>
                 <div className="timeline-image">
-                  <img src="../src/assets/imgs/pratica.png" alt="Imagem 4" />
+                  <img src="../src/assets/pratica.png" alt="Imagem 4" />
                 </div>
                 <div className="timeline-text2">
                   <h3>Central de Práticas</h3>
@@ -141,7 +141,7 @@ function Home() {
                   </p>
                 </div>
                 <div className="timeline-image">
-                  <img src="../src/assets/imgs/perfil.png" alt="Imagem 5" />
+                  <img src="../src/assets/perfil.png" alt="Imagem 5" />
                 </div>
                 </button>
             </div>
