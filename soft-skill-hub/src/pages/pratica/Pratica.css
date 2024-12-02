@@ -1,5 +1,3 @@
-/* Pratica.css */
-
 /* ============================== */
 /* Reset e Importações             */
 /* ============================== */
@@ -12,6 +10,90 @@
   box-sizing: border-box;
 }
 
+.seletor-skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  margin-top: 20px;
+  background-color: var(--bluesecondary);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto; /* Garante que o elemento se alinhe à direita */
+  margin-right: auto; /* Garante que o elemento se alinhe à esquerda */
+}
+
+.seletor-skill h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--whitecolor);
+}
+
+.seletor-skill select {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--bluesecondary);
+  color: var(--darkcolor);
+  transition: all 0.3s ease;
+}
+
+.seletor-skill select:hover {
+  background-color: var(--bluesecondary);
+  border-color: var(--bluesecondary);
+  color: var(--whitecolor);
+}
+
+.seletor-skill select:focus {
+  outline: none;
+  border-color: var(--bluesecondary);
+}
+
+.reset-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: var(--darkcolor);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 20px auto; /* Centraliza o botão horizontalmente */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* A transição vai funcionar para o hover */
+}
+
+.reset-skill:hover {
+  background-color: var(--bluesecondary);
+  transform: scale(1.05);
+  color: var(--whitecolor);
+}
+.skill-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem; /* Tamanho grande para dar destaque */
+  color: var(--bluesecondary); /* Cor secundária definida em seu :root */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 20px; /* Espaçamento inferior */
+  text-transform: capitalize; /* Capitaliza a primeira letra de cada palavra */
+  letter-spacing: 1px; /* Um pequeno espaçamento entre as letras */
+  font-weight: bold; /* Deixa o texto mais forte */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave para destaque */
+  padding: 10px 0; /* Espaçamento interno acima e abaixo do título */
+  border-bottom: 3px solid var(--bluecolor); /* Linha embaixo do título */
+}
+
+
 /* ============================== */
 /* Container Prática              */
 /* ============================== */
@@ -19,25 +101,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Altura total da viewport */
-  background-color: var(--whitecolor); /* Cor de fundo igual à página home */
+  min-height: 100vh;
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 20px;
-  width: 100%; /* Garantir que o contêiner ocupe toda a largura */
+  width: 100%;
 }
 
-/* ============================== */
-/* Contêiner Principal            */
-/* ============================== */
 .pratica {
   display: flex;
-  flex-direction: row; /* Alinhar os elementos horizontalmente */
-  justify-content: space-between; /* Espaçar os elementos */
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* Limitar a largura máxima */
-  background-color: var(--whitecolor); /* Cor de fundo dos contêineres */
+  max-width: 1200px;
+  background-color: transparent;
   padding: 20px;
   border-radius: 8px;
-  gap: 20px; /* Espaçamento entre os contêineres */
+  gap: 20px;
+  margin: 20px auto; /* Centraliza o container na página */
+  box-sizing: border-box; /* Garante que padding e border não afetem a largura total */
+}
+
+@media (max-width: 768px) {
+  .pratica {
+    flex-direction: column; /* Alinha os itens verticalmente em telas menores */
+    gap: 15px; /* Diminui o gap entre os itens */
+  }
 }
 
 /* ============================== */
@@ -45,101 +136,23 @@
 /* ============================== */
 .container-info-status {
   display: flex;
-  flex-direction: column; /* Alinhar os elementos verticalmente */
-  align-items: center; /* Centralizar os elementos */
-  gap: 20px; /* Espaçamento entre os contêineres */
-  width: 30%; /* Largura do container à esquerda */
-  justify-content: center; /* Centralizar verticalmente */
-}
-
-/* ============================== */
-/* Container Foto de Perfil       */
-/* ============================== */
-.container-foto-perfil {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
-  border-radius: 8px;
-  padding: 20px;
-  width: 150px; /* Tamanho fixo para a foto de perfil */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  position: relative;
-  margin-bottom: 20px; /* Espaçamento abaixo da foto de perfil */
+  gap: 20px;
+  width: 30%;
+  justify-content: center;
 }
 
-.container-foto-perfil:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* ============================== */
-/* Container Testes               */
-/* ============================== */
-.container-test {
+.container-info-status2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px; /* Reduzir o espaçamento entre os elementos */
-  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
-  border-radius: 8px;
-  height: 80px; 
-  padding: 15px; /* Reduzir o padding */
-  width: 150px; /* Ajustar a largura */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  position: relative;
-}
-
-.container-test:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.container-test:hover::before {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.test-title {
-  font-size: 16px; /* Ajustar o tamanho da fonte */
-  font-weight:bold;
-  color: var(--whitecolor); /* Cor do texto */
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.test-info {
-  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--darkcolor);
-  color: var(--whitecolor);
-  font-size: 16px; /* Ajustar o tamanho da fonte */
-  font-weight: bold;
-  padding: 4px 10px; /* Ajustar o padding */
-  border-radius: 8px;
-  width: fit-content;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  margin-top: -30px; /* Subir o test-info */
-}
-
-.container-test::before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border-radius: 8px;
+  gap: 10px;
+  width: 70%;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* ============================== */
@@ -148,63 +161,37 @@
 .container-progress {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centralizar o conteúdo */
+  align-items: center;
   gap: 12px;
   width: 100%;
-  max-width: 400px; /* Limitar a largura máxima */
+  max-width: 400px;
   box-sizing: border-box;
-  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
+  background-color: var(--bluesecondary);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
   position: relative;
-  margin-left: auto; /* Mover para a direita */
-}
-
-.container-progress::before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border-radius: 8px;
-}
-
-.container-progress:hover::before {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.container-progress:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
 }
 
 .progress-title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: var(--whitecolor); /* Cor do texto */
+  color: var(--whitecolor);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 
 .progress-bar {
   height: 18px;
   width: 100%;
   max-width: 300px;
+  border: 1px solid var(--whitecolor);
   background-color: var(--lightbluecolor);
   border-radius: 10px;
   overflow: hidden;
-  position: relative;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
 }
 
 .progress-bar .progress {
@@ -216,20 +203,17 @@
 
 .progress-percentage {
   font-size: 14px;
-  color: var(--whitecolor); /* Cor do texto */
+  color: var(--whitecolor);
   margin-top: 6px;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
 
-/* ============================== */
-/* Estilizando o Card de Habilidade */
-/* ============================== */
 .card-habilidade {
-  width: 100%; /* Ajustar a largura para 100% */
-  max-width: 400px; /* Limitar a largura máxima para igualar ao container de progresso */
-  height: 400px; /* Ajustar a altura automaticamente */
-  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  background-color: var(--bluesecondary);
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-size: 30px;
@@ -238,33 +222,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: var(--whitecolor); /* Cor do texto */
-  transition: transform 0.3s ease-in-out;
+  color: var(--whitecolor);
   position: relative;
-}
-
-.card-habilidade::before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border-radius: 8px;
-}
-
-.card-habilidade:hover::before {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.card-habilidade:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card-habilidade p {
@@ -273,102 +232,6 @@
   margin: 0;
 }
 
-/* ============================== */
-/* Container Info Status 2        */
-/* ============================== */
-.container-info-status2 {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  gap: 10px; /* Espaçamento entre os contêineres */
-  width: 70%; /* Largura do container à direita */
-}
-
-/* ============================== */
-/* Container Habilidade e Atividades */
-/* ============================== */
-.container-habilidade,
-.container-atividades {
-  width: 100%;
-  height: auto; /* Ajustar a altura ao conteúdo */
-  padding: px; /* Diminuir o padding */
-  box-sizing: border-box;
-  overflow-x:hidden;
-  overflow-y: auto;
-  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  position: relative;
-  max-width: 700px; /* Diminuir a largura */
-  height: 330px; /* Aumentar a altura */
-}
-
-.container-habilidade::before,
-.container-atividades::before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Garantir que cubra toda a largura */
-  height: 100%; /* Garantir que cubra toda a altura */
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border-radius: 8px;
-  width: calc(100% + 40px); /* Expande o gradiente horizontalmente */
-  height: calc(100% + 40px); /* Expande o gradiente verticalmente */
-  top: -20px; /* Ajusta a posição para cobrir o overflow */
-  left: -20px; /* Ajusta a posição para cobrir o overflow */
-}
-
-.container-habilidade:hover::before,
-.container-atividades:hover::before {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.container-habilidade:hover,
-.container-atividades:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.container-habilidade::-webkit-scrollbar,
-.container-atividades::-webkit-scrollbar {
-  width: 2px;
-}
-
-.container-habilidade::-webkit-scrollbar-thumb,
-.container-atividades::-webkit-scrollbar-thumb {
-  background-color: var(--whitecolor);
-  border-radius: 2px;
-}
-
-.container-habilidade::-webkit-scrollbar-track,
-.container-atividades::-webkit-scrollbar-track {
-  background-color: var(--darkcolor);
-}
-
-.descricao-habilidade {
-  color: var(--whitecolor); /* Ajustar a cor do texto */
-  font-family: 'Poppins', sans-serif; /* Ajustar a fonte */
-  font-size: 16px; /* Diminuir o tamanho da fonte */
-  padding: 20px; /* Adicionar padding */
-  text-align: justify; /* Justificar o texto */
-}
-
-h4 {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--whitecolor); /* Cor do texto */
-  margin-bottom: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
 
 .atividades-list {
   display: flex;
@@ -379,7 +242,7 @@ h4 {
 .atividade-item {
   padding: 12px 20px;
   border: none;
-  background-color: var (--darkcolor);
+  background-color: var(--darkcolor);
   color: var(--whitecolor);
   cursor: pointer;
   border-radius: 8px;
@@ -395,10 +258,10 @@ h4 {
 }
 
 .atividades-title {
-  font-size: 18px; /* Diminuir o tamanho da fonte */
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: var(--whitecolor); /* Cor do texto */
+  color: var(--whitecolor);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -424,7 +287,7 @@ h4 {
   font-size: 4rem;
   color: var(--whitecolor);
   font-family: 'Poppins', SemiBold !important;
-  font-weight: 800; 
+  font-weight: 800;
   animation: slide-in 1s ease-out;
   position: relative;
   z-index: 1;
@@ -432,4 +295,22 @@ h4 {
 
 .container-titleP h1 span {
   color: var(--bluesecondary);
+}
+.descricao-habilidade,
+.container-atividades {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  color: var(--whitecolor);
+  line-height: 1.8;
+  text-align: justify;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  padding: 20px; 
+  border-radius: 8px;
+  background-color: var(--bluesecondary);
+  border: 1px solid var(--graycolor); /* Borda sutil */
+  width: 90%; 
+  max-width: 900px; 
+  height: 300px; 
+  box-sizing: border-box;
 }
