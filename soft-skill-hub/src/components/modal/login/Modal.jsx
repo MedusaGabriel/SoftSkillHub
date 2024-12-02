@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "../modal/Modal.css";
+import "../login/Modal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom"; // Importe o hook useNavigate
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ isOpen, onClose }) => {
   const [isClosing, setIsClosing] = useState(false);

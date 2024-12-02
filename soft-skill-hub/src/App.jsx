@@ -5,9 +5,9 @@ import Home from "../src/pages/home/Home";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Pratica from "./pages/pratica/Pratica";
 import Habilidades from "./pages/habilidades/Habilidades";
-import Sobre from "./pages/sobre/Sobre";
+import Sobre from "./pages/sobre/sobre";
 import "./App.css";
-import Modal from "./components/modal/Modal";
+import Modal from "./components/modal/login/Modal";
 
 function App() {
   return (

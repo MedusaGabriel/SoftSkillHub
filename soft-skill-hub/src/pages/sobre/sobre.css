@@ -5,7 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.container-Home {
+.sobre-container {
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -14,8 +14,8 @@ body {
   gap: 20px;
 }
 
-.welcome {
-  background-image: url('../../assets/imgs/background.png');
+.sobre-welcome {
+  background-image: url('../../assets/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@ body {
   box-shadow: 0px 4px 13px var(--shadow-dark), 0px 1px 4px var(--shadow-dark);
 }
 
-.welcome h1 {
+.sobre-welcome h1 {
   font-size: 4rem;
   color: var(--whitecolor);
   font-family: 'Poppins', SemiBold !important;
@@ -37,7 +37,7 @@ body {
   animation: slide-in 1s ease-out;
 }
 
-.welcome p {
+.sobre-welcome p {
   font-size: 2rem;
   color: var(--whitecolor);
   font-family: 'Poppins', sans-serif !important;
@@ -46,11 +46,11 @@ body {
   margin-bottom: 20px;
 }
 
-.welcome h1 span {
+.sobre-welcome h1 span {
   color: var(--bluesecondary);
 }
 
-.intro {
+.sobre-intro {
   margin: 80px auto 30px auto;
   color: var(--darkcolor);
   text-align: center;
@@ -58,14 +58,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.intro h2 {
+.sobre-intro h2 {
   color: var(--darkcolor);
   font-size: 3em;
   font-family: 'Poppins', sans-serif;
 }
 
-.container-Home .content,
-.container-Home .content2 {
+.sobre-container .sobre-content,
+.sobre-container .sobre-content2 {
   opacity: 0;
   transform: translateX(100%);
   background-color: transparent;
@@ -106,13 +106,14 @@ body {
   }
 }
 
-.timeline {
+.sobre-timeline {
   position: relative;
   max-width: 900px;
+  margin: 0 auto;
   margin-bottom: 150px;
 }
 
-.timeline-line {
+.sobre-timeline-line {
   position: absolute;
   top: 0;
   left: 50%;
@@ -123,7 +124,7 @@ body {
   z-index: 2;
 }
 
-.timeline-circle {
+.sobre-timeline-circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,7 +157,7 @@ body {
   }
 }
 
-.timeline-item {
+.sobre-timeline-item {
   margin: 30px auto;
   display: flex;
   justify-content: space-between;
@@ -164,8 +165,8 @@ body {
   position: relative;
 }
 
-.timeline-content,
-.timeline-content2 {
+.sobre-timeline-content,
+.sobre-timeline-content2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -180,7 +181,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.timeline-content:hover {
+.sobre-timeline-content:hover {
   transform: scale(1.1);
   box-shadow: 0 12px 24px var(--shadow-dark);
   filter: brightness(1.1);
@@ -188,7 +189,7 @@ body {
   border-radius: 12px;
 }
 
-.timeline-content::before {
+.sobre-timeline-content::before {
   content: " ";
   position: absolute;
   top: 0;
@@ -202,18 +203,18 @@ body {
   border-radius: 12px;
 }
 
-.timeline-content:hover::before {
+.sobre-timeline-content:hover::before {
   opacity: 1;
   transform: scale(1.05);
 }
 
-.timeline-content:hover img {
+.sobre-timeline-content:hover img {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
 
-.timeline-text,
-.timeline-text2 {
+.sobre-timeline-text,
+.sobre-timeline-text2 {
   width: 45%;
   color: var(--whitecolor);
   font-size: 1.1rem;
@@ -226,22 +227,22 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.timeline-text p,
-.timeline-text2 p {
+.sobre-timeline-text p,
+.sobre-timeline-text2 p {
   line-height: 1.2;
   font-family: 'Poppins', sans-serif;
 }
 
-.timeline-content:hover .timeline-text,
-.timeline-content:hover .timeline-text2 {
+.sobre-timeline-content:hover .sobre-timeline-text,
+.sobre-timeline-content:hover .sobre-timeline-text2 {
   color: var(--whitecolor);
 }
 
-.timeline-image {
+.sobre-timeline-image {
   width: 45%;
 }
 
-.timeline-image img {
+.sobre-timeline-image img {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;

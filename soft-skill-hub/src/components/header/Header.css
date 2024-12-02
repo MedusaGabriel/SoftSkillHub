@@ -27,7 +27,7 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
     padding: 50px 10%;
     box-shadow: transparent;
     transition: background-color 0.3s, padding 0.3s;
@@ -72,18 +72,18 @@ header ul li a:hover {
 /* ===================
    NAVEGAÇÃO
    =================== */
-   .navigation {
+.navigation {
     display: flex;
-    justify-content: flex-end; /* Alinha o conteúdo à esquerda */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
     width: 100%; /* Garante que a navegação ocupe todo o espaço disponível */
 }
 
-   .navigation ul {
+.navigation ul {
     margin: 0;
     padding: 0;
     align-items: center;
     gap: 20px; /* Espaçamento entre os itens */
-    justify-content: flex-end; /* Alinha os itens à esquerda */
+    justify-content: center; /* Centraliza os itens */
     width: auto; /* Remove a largura fixa */
 }
 
@@ -112,7 +112,7 @@ header ul li a:hover {
     width: auto;
     margin: 0;
     position: relative;
-    justify-content: end;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
     font-size: 1.1em;
     color: var(--whitecolor);
     text-decoration: none;
@@ -154,7 +154,7 @@ header.Scrolling .navigation a::after, header.Scrolling .link-button::after {
 /* ===================
    BOTÃO
    =================== */
-   button, .link-button {
+button, .link-button {
     width: auto;
     border-radius: 8px;
     border: none;

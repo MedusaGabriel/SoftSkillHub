@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import '../perfil/Perfil.css';
+import './Perfil.css';
 import PropTypes from 'prop-types';
+import user from '../../../assets/userfoto.png';
 
 const Perfil = ({ isOpen, onClose }) => {
   const [userName, setUserName] = useState("");
@@ -39,11 +40,7 @@ const Perfil = ({ isOpen, onClose }) => {
     <div className={`modal-container ${isOpen ? 'open' : ''}`} onClick={onClose}>
       <div className="container-perfil" onClick={(e) => e.stopPropagation()}>
         <div className="perfil-header">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Foto de perfil"
-            className="perfil-foto"
-          />
+        <img src={user} alt="user" className="Iconuser"/>
           <h1 className="perfil-nome">{userName || "Nome do Usuário"}</h1>
           <p className="perfil-subtitulo">Aprendendo soft skills como um mestre!</p>
         </div>

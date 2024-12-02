@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "../sobre/Sobre.css";
+import "./sobre.css"; // Update this path based on the actual location of the CSS file
 
 function Sobre() {
   useEffect(() => {
@@ -8,11 +8,11 @@ function Sobre() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Verifica se o elemento tem a classe .content ou .content2
-            if (entry.target.classList.contains("content")) {
-              entry.target.classList.add("fadeInLeft"); // Adiciona fadeInLeft para .content
-            } else if (entry.target.classList.contains("content2")) {
-              entry.target.classList.add("fadeInRight"); // Adiciona fadeInRight para .content2
+            // Verifica se o elemento tem a classe .sobre-content ou .sobre-content2
+            if (entry.target.classList.contains("sobre-content")) {
+              entry.target.classList.add("fadeInLeft"); // Adiciona fadeInLeft para .sobre-content
+            } else if (entry.target.classList.contains("sobre-content2")) {
+              entry.target.classList.add("fadeInRight"); // Adiciona fadeInRight para .sobre-content2
             }
             observer.unobserve(entry.target); // Para de observar o elemento após a animação
           }
@@ -21,7 +21,7 @@ function Sobre() {
       { threshold: 0.2 }
     );
 
-    const contentDivs = document.querySelectorAll(".content, .content2");
+    const contentDivs = document.querySelectorAll(".sobre-content, .sobre-content2");
 
     contentDivs.forEach((div) => {
       observer.observe(div);
@@ -36,7 +36,7 @@ function Sobre() {
 
   return (
     <>
-      <div className="welcome">
+      <div className="sobre-welcome">
         <h1>SOBRE <span>NÓS</span> </h1>
         <p id="sobreP">
           O Soft Skills Hub é uma plataforma dedicada ao desenvolvimento de
@@ -46,19 +46,19 @@ function Sobre() {
         </p>
       </div>
 
-      <div className="container-Home">
+      <div className="sobre-container">
         <main>
-          <section className="intro">
-            <h2>Como Funciona?</h2>
+          <section className="sobre-intro">
+            <h2>Quem somos nós</h2>
           </section>
 
-          <div className="timeline">
-            <div className="timeline-line"></div>
+          <div className="sobre-timeline">
+            <div className="sobre-timeline-line"></div>
 
-            <div className="timeline-item content">
-              <div className="timeline-circle">1</div>
-              <button className="timeline-content" onClick={handleClick}>
-                <div className="timeline-text">
+            <div className="sobre-timeline-item sobre-content">
+              <div className="sobre-timeline-circle">1</div>
+              <button className="sobre-timeline-content" onClick={handleClick}>
+                <div className="sobre-timeline-text">
                   <h3>Cadastro</h3>
                   <p>
                     Antes de tudo, para acessar nosso conteúdo exclusivo e
@@ -67,19 +67,19 @@ function Sobre() {
                     e comece agora mesmo.
                   </p>
                 </div>
-                <div className="timeline-image">
-                  <img src="../src/assets/imgs/cadastro.png" alt="Imagem 1" />
+                <div className="sobre-timeline-image">
+                  <img src="../src/assets/gabriel.png" alt="Imagem 1" />
                 </div>
               </button>
             </div>
 
-            <div className="timeline-item content2">
-              <div className="timeline-circle">2</div>
-              <button className="timeline-content" onClick={handleClick}>
-                <div className="timeline-image">
-                  <img src="../src/assets/imgs/conteudo.png" alt="Imagem 2" />
+            <div className="sobre-timeline-item sobre-content2">
+              <div className="sobre-timeline-circle">2</div>
+              <button className="sobre-timeline-content" onClick={handleClick}>
+                <div className="sobre-timeline-image">
+                  <img src="../src/assets/anderson.png" alt="Imagem 2" />
                 </div>
-                <div className="timeline-text2">
+                <div className="sobre-timeline-text2">
                   <h3>Apresentação ao Conteúdo</h3>
                   <p>
                     Conta criada com sucesso? Agora é hora de escolher pelo
@@ -91,10 +91,10 @@ function Sobre() {
               </button>
             </div>
 
-            <div className="timeline-item content">
-              <div className="timeline-circle">3</div>
-              <button className="timeline-content" onClick={handleClick}>
-                <div className="timeline-text">
+            <div className="sobre-timeline-item sobre-content">
+              <div className="sobre-timeline-circle">3</div>
+              <button className="sobre-timeline-content" onClick={handleClick}>
+                <div className="sobre-timeline-text">
                   <h3>Central de Habilidades</h3>
                   <p>
                     Na Central de Habilidades, você encontrará todo o nosso
@@ -102,19 +102,19 @@ function Sobre() {
                     as suas necessidades e objetivos.
                   </p>
                 </div>
-                <div className="timeline-image">
-                  <img src="../src/assets/imgs/skills.png" alt="Imagem 3" />
+                <div className="sobre-timeline-image">
+                  <img src="../src/assets/ryan.png" alt="Imagem 3" />
                 </div>
               </button>
             </div>
 
-            <div className="timeline-item content2">
-              <div className="timeline-circle">4</div>
-              <button className="timeline-content" onClick={handleClick}>
-                <div className="timeline-image">
-                  <img src="../src/assets/imgs/pratica.png" alt="Imagem 4" />
+            <div className="sobre-timeline-item sobre-content2">
+              <div className="sobre-timeline-circle">4</div>
+              <button className="sobre-timeline-content" onClick={handleClick}>
+                <div className="sobre-timeline-image">
+                  <img src="../src/assets/brian.png" alt="Imagem 4" />
                 </div>
-                <div className="timeline-text2">
+                <div className="sobre-timeline-text2">
                   <h3>Central de Práticas</h3>
                   <p>
                     Aqui você pode acompanhar de perto seu progresso! Visualize

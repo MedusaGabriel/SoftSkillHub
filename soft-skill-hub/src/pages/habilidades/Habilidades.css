@@ -4,11 +4,6 @@
   min-height: 150vh;
 }
 
-
-
-/* ===================
-   Welcome Home
-   =================== */
 .containerHs {
   display: flex;
   flex-direction: column;
