@@ -4,17 +4,15 @@ import {
   faMountain,
   faHeart,
   faComments,
-  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 const Habilidades = () => {
   const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedSkill, setSelectedSkill] = useState(null); // Estado para controlar a habilidade no modal
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar o modal
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Carregar as habilidades do json-server
   useEffect(() => {
     fetch("http://localhost:5000/skills")
       .then((res) => res.json())
@@ -38,22 +36,22 @@ const Habilidades = () => {
   const handleAddSkill = () => {
     if (selectedSkill) {
       const userSkills = JSON.parse(localStorage.getItem("userSkills")) || [];
-  
+
       if (!userSkills.some((skill) => skill.id === selectedSkill.id)) {
         userSkills.push(selectedSkill);
-        localStorage.setItem("userSkills", JSON.stringify(userSkills)); 
-        
+        localStorage.setItem("userSkills", JSON.stringify(userSkills));
       }
-  
+
       alert(`Você adicionou a habilidade: ${selectedSkill.nome}!`);
-      closeModal(); 
+      closeModal();
     }
   };
+
   return (
     <div>
       <div className="containerHs">
         <div className="container-titleH">
-          <h1 id="TituloS">Central de Habilidades</h1>
+          <h1 id="TituloS">Central <span>Habilidades</span></h1>
         </div>
       </div>
 
@@ -120,7 +118,6 @@ const Habilidades = () => {
           <h2 id="Secondary">Skills Disponíveis em nosso Banco de Dados</h2>
 
           <div className="search-container">
-            <FontAwesomeIcon icon={faSearch} className="search-icon" />
             <input
               type="text"
               placeholder="Pesquise uma habilidade..."
@@ -151,17 +148,15 @@ const Habilidades = () => {
         </div>
       </main>
 
-      {/* Modal */}
       {isModalOpen && selectedSkill && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" role="dialog" aria-modal="true">
           <div className="modal-content">
             <h3>{selectedSkill.nome}</h3>
             <p>
               {selectedSkill.descricao
                 ? selectedSkill.descricao
                 : "Descrição não disponível"}
-            </p>{" "}
-            {/* Verificação de conteúdo */}
+            </p>
             <div className="modal-buttons">
               <button onClick={handleAddSkill} className="add-skill-btn">
                 Adicionar

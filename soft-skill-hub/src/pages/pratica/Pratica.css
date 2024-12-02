@@ -1,286 +1,301 @@
+/* Pratica.css */
+
+/* ============================== */
+/* Reset e Importações             */
+/* ============================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '../../components/global/themes.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* ============================== */
 /* Container Prática              */
 /* ============================== */
 .container-pratica {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Altura total da viewport */
-    background-color: transparent;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Altura total da viewport */
+  background-color: var(--whitecolor);
+  padding: 20px;
+  width: 100%; /* Garantir que o contêiner ocupe toda a largura */
 }
 
+/* ============================== */
+/* Contêiner Principal            */
+/* ============================== */
 .pratica {
-    background: #f5f5f5;
-    backdrop-filter: blur(10px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    min-width: 1000px;
-    min-height: 600px;
-    width: 100%;
-    padding: 20px 40px;
-    color: #333333;
-    font-family: Arial, sans-serif;
-    display: flex;
-    
-
+  display: flex;
+  flex-direction: column; /* Alinhar os elementos verticalmente */
+  align-items: center; /* Centralizar os elementos */
+  width: 100%;
+  max-width: 1200px; /* Limitar a largura máxima */
+  background-color: var(--whitecolor);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 40px; /* Espaçamento entre os contêineres */
 }
 
 /* ============================== */
-/* Container Info  Status               */
+/* Container Info Status          */
 /* ============================== */
-
 .container-info-status {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    margin-left: 20px;
-    justify-content: space-between;
- 
-  }
-
+  display: flex;
+  flex-direction: column; /* Alinhar os elementos verticalmente */
+  align-items: center; /* Centralizar os elementos */
+  gap: 40px; /* Espaçamento entre os contêineres */
+  width: 100%; /* Garantir que o contêiner ocupe toda a largura */
+  max-width: 800px; /* Limitar a largura máxima */
+}
 
 /* ============================== */
 /* Container Progresso            */
 /* ============================== */
 .container-progress {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px; /* Aumentei o espaçamento entre os itens */
-    margin-top: 25px; /* Aumentei um pouco a margem superior */
-    width: fit-content;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* Título da Barra de Progresso */
-  .progress-title {
-    font-size: 18px; /* Aumentei o tamanho da fonte para mais destaque */
-    font-weight: bold;
-    margin-bottom: 8px; /* Aumentei o espaço abaixo do título */
-    color: #6a1b9a; /* Roxo para destacar o título */
-    text-transform: uppercase; /* Tornando o título em maiúsculas */
-    letter-spacing: 1px; /* Aumentei o espaçamento entre as letras */
-  }
-  
-  /* Barra de Progresso */
-  .progress-bar {
-    height: 18px; /* Aumentei a altura para dar mais destaque */
-    width: 200px; /* Largura inicial */
-    max-width: 300px;
-    background-color: #f3e5f5; /* Cor de fundo suave rosa claro */
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-    transition: all 0.3s ease-in-out; /* Transição suave */
-  }
-  
-  /* Indicador de Progresso */
-  .progress-bar .progress {
-    height: 100%;
-    background-color: #9c27b0; /* Cor roxa para o progresso */
-    border-radius: 10px 0 0 10px; /* Bordas arredondadas no lado esquerdo */
-    transition: width 0.4s ease; /* Transição suave para o progresso */
-  }
-  
-  /* Porcentagem */
-  .progress-percentage {
-    font-size: 14px;
-    color: #9c27b0; /* Cor roxa para o texto da porcentagem */
-    margin-top: 6px; /* Ajustei o espaço superior */
-    font-weight: bold; /* Deixando a porcentagem mais destacada */
-    letter-spacing: 0.5px; /* Aumentando o espaçamento entre as letras para dar mais destaque */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centralizar o conteúdo */
+  gap: 12px;
+  width: 100%;
+  max-width: 400px; /* Limitar a largura máxima */
+  box-sizing: border-box;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.container-progress:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.progress-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--whitecolor);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  height: 18px;
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--lightbluecolor);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.progress-bar .progress {
+  height: 100%;
+  background-color: var(--bluecolor);
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease;
+}
+
+.progress-percentage {
+  font-size: 14px;
+  color: var(--whitecolor);
+  margin-top: 6px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
 /* ============================== */
 /* Container Testes               */
 /* ============================== */
 .container-test {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Aumentei o espaçamento para mais conforto */
-    background-color: #f3e5f5; /* Fundo rosa claro */
-    border: 1px solid #e1bee7; /* Borda roxa suave */
-    border-radius: 12px; /* Bordas mais arredondadas para suavizar o visual */
-    padding: 20px; /* Espaçamento interno maior */
-    width: 100%;
-    max-width: 220px; /* Aumentei um pouco o tamanho máximo */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombras mais suaves e profundas */
-    transition: all 0.3s ease-in-out; /* Transição suave */
-  }
-  
-  /* Efeito de hover no container-test */
-  .container-test:hover {
-    transform: translateY(-5px); /* Eleva o container quando o mouse passa por cima */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
-  }
-  
-  /* Título dentro do container-test */
-  .test-title {
-    font-size: 18px; /* Aumentei o tamanho da fonte */
-    font-weight: bold;
-    color: #6a1b9a; /* Roxo para o título */
-    text-align: center;
-    margin: 0;
-    text-transform: uppercase; /* Transformando em maiúsculas */
-    letter-spacing: 1px; /* Espaçamento entre as letras */
-  }
-  
-  /* Estilizando a informação do teste */
-  .test-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1c6fc; /* Cor de fundo rosa mais claro */
-    color: #9c27b0; /* Cor roxa para o texto */
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 14px;
-    border-radius: 8px;
-    width: fit-content;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    transition: all 0.3s ease-in-out;
-  }
-  
-  /* Efeito de hover na test-info */
-  .test-info:hover {
-    background-color: #ec407a; /* Cor de fundo mais intensa quando passa o mouse */
-    color: #fff; /* Texto branco */
-    transform: translateY(-3px); /* Efeito de elevação */
-  }
-  
-  /* ============================== */
-  /* Estilizando o Card de Habilidade */
-  /* ============================== */
-  .card-habilidade {
-    width: 200px;
-    height: 250px;
-    background: linear-gradient(135deg, #f06292, #9c27b0); /* Gradiente rosa e roxo */
-    border-radius: 12px;
-    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
-    font-size: 30px;
-    font-weight: 900;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff; /* Cor branca para o texto */
-    transition: all 0.3s ease-in-out; /* Transição suave para efeitos */
-  }
-  
-  /* Efeito de hover no card-habilidade */
-  .card-habilidade:hover {
-    transform: scale(1.05); /* Aumenta o tamanho do card quando o mouse passa por cima */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
-  }
-  
-  /* Melhorando a legibilidade do conteúdo dentro do card */
-  .card-habilidade p {
-    font-size: 16px; /* Ajustando o tamanho do texto para caber melhor */
-    font-weight: normal;
-    margin: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px; /* Diminuir o tamanho do contêiner de teste */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.container-test:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.test-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--whitecolor);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.test-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--darkcolor);
+  color: var(--whitecolor);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 8px;
+  width: fit-content;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.test-info:hover {
+  background-color: var(--whitecolor);
+  color: var(--darkcolor);
+  transform: translateY(-3px);
+}
 
 /* ============================== */
-/* Container Info  Status 2       */
+/* Estilizando o Card de Habilidade */
 /* ============================== */
+.card-habilidade {
+  width: 200px;
+  height: 250px;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--whitecolor);
+  transition: transform 0.3s ease-in-out;
+}
 
-/* Container com status de informações (geral) */
+.card-habilidade:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-habilidade p {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* ============================== */
+/* Container Info Status 2        */
+/* ============================== */
 .container-info-status2 {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    justify-content: space-between;
-    gap: 20px; /* Aumentei o espaçamento entre os itens */
-  }
-  
-  /* Estilo dos containers de habilidade e atividades */
-  .container-habilidade,
-  .container-atividades {
-    width: 100%; /* Ajustei a largura para 100% do elemento pai */
-    max-width: 600px; /* Definindo um valor máximo para não ultrapassar o tamanho desejado */
-    height: 250px; /* Altura fixa para manter o padrão */
-    padding: 20px; /* Aumentei o espaçamento interno para um visual mais "clean" */
-    box-sizing: border-box;
-    overflow-y: auto;
-    background-color: #f8bbd0; /* Cor de fundo rosa claro, mais suave */
-    border: 1px solid #f06292; /* Borda rosa mais intensa */
-    border-radius: 12px; /* Bordas mais arredondadas */
-    margin-left: 100px;
-    transition: all 0.3s ease-in-out; /* Transição suave */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px; /* Espaçamento entre os contêineres */
+  width: 100%; /* Garantir que o contêiner ocupe toda a largura */
+  max-width: 800px; /* Limitar a largura máxima */
+}
 
-  
-  /* Melhorando a rolagem vertical (scroll) */
-  .container-habilidade::-webkit-scrollbar,
-  .container-atividades::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .container-habilidade::-webkit-scrollbar-thumb,
-  .container-atividades::-webkit-scrollbar-thumb {
-    background-color: #f06292; /* Cor do "thumb" (parte visível da barra de rolagem) */
-    border-radius: 8px;
-  }
-  
-  .container-habilidade::-webkit-scrollbar-track,
-  .container-atividades::-webkit-scrollbar-track {
-    background-color: #f8bbd0; /* Cor de fundo da barra de rolagem */
-  }
-  
-  /* Opções de título para os containers (ex. .container-atividades, .container-habilidade) */
-  h4 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #6a1b9a; /* Cor roxa para os títulos */
-    margin-bottom: 20px; /* Espaço maior entre o título e o conteúdo */
-    text-align: center; /* Centralizando o título */
-    text-transform: uppercase; /* Tornando o título em maiúsculas */
-    letter-spacing: 2px; /* Aumentando o espaçamento entre as letras */
-  }
-/* Container de habilidade com espaçamento inferior */
+/* ============================== */
+/* Container Habilidade e Atividades */
+/* ============================== */
+.container-habilidade,
+.container-atividades {
+  width: 100%;
+  height: 250px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
 .container-habilidade {
-    margin-bottom: 20px; /* Espaçamento maior entre containers */
-  }
-  
-  /* Lista de atividades */
-  .atividades-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;  /* Aumentando o espaçamento entre os itens */
-  }
-  
-  /* Estilo dos itens de atividade */
-  .atividade-item {
-    padding: 12px 20px;
-    border: none;
-    background-color: #f7c5d8; /* Cor de fundo rosa claro */
-    color: #6a1b9a; /* Cor de texto roxa */
-    cursor: pointer;
-    border-radius: 8px; /* Bordas arredondadas */
-    font-size: 16px;  /* Aumentando o tamanho da fonte */
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
-  }
-  
-  /* Efeito de hover nos itens de atividade */
-  .atividade-item:hover {
-    background-color: #f48fb1; /* Cor rosa mais escura no hover */
-    transform: scale(1.05); /* Aumentando o tamanho no hover */
-  }
-  
-  /* Estilo do título das atividades */
-  .atividades-title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;  /* Espaçamento maior entre o título e os botões */
-    color: #8e24aa;  /* Cor roxa para o título */
-    text-align: center; /* Centralizando o título */
-    text-transform: uppercase; /* Deixando o título em maiúsculas */
-    letter-spacing: 2px; /* Aumentando o espaçamento entre as letras */
-  }
+  margin-bottom: 20px;
+}
 
+.container-habilidade:hover,
+.container-atividades:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container-habilidade::-webkit-scrollbar,
+.container-atividades::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container-habilidade::-webkit-scrollbar-thumb,
+.container-atividades::-webkit-scrollbar-thumb {
+  background-color: var(--darkcolor);
+  border-radius: 8px;
+}
+
+.container-habilidade::-webkit-scrollbar-track,
+.container-atividades::-webkit-scrollbar-track {
+  background-color: var(--bluecolor);
+}
+
+.descricao-habilidade {
+  color: var(--whitecolor); /* Ajustar a cor do texto */
+  font-family: 'Poppins', sans-serif; /* Ajustar a fonte */
+  font-size: 16px;
+  padding: 10px; /* Adicionar padding */
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--whitecolor);
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.atividades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.atividade-item {
+  padding: 12px 20px;
+  border: none;
+  background-color: var(--darkcolor);
+  color: var(--whitecolor);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.atividade-item:hover {
+  background-color: var(--whitecolor);
+  color: var(--darkcolor);
+  transform: scale(1.05);
+}
+
+.atividades-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--whitecolor);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

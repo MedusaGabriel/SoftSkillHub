@@ -1,7 +1,50 @@
 /* Habilidades.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '../../components/global/themes.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-titleH {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.container-titleH h1 {
+  font-size: 4rem;
+  color: var(--whitecolor);
+  font-family: 'Poppins', SemiBold !important;
+  font-weight: 800; 
+  animation: slide-in 1s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.container-titleH h1 span {
+  color: var(--bluesecondary);
+}
+
+/* Containers */
 .skill-container {
   min-height: 150vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .containerHs {
@@ -10,97 +53,86 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  color: #000000;
+  color: var(--darkcolor);
   padding: 20px;
   text-align: center;
   overflow: auto; /* Garante que animações não "transbordem" */
 }
 
-/* Título principal */
-.container-titleH h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  line-height: 1.2;
-  margin: 0;
-  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra elegante */
-  animation: slideIn 1s ease-out, glow 2s infinite alternate; /* Duas animações aplicadas */
-}
-
-
-/* Animação de entrada (deslizando) */
-@keyframes slideIn {
-  0% {
-    transform: translateY(-100px); /* Começa acima */
-    opacity: 0; /* Invisível */
-  }
-  100% {
-    transform: translateY(0); /* Posição final */
-    opacity: 1; /* Totalmente visível */
-  }
-}
-
-/* Animação de brilho */
-@keyframes glow {
-  0% {
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    text-shadow: 2px 4px 20px rgba(255, 255, 255, 0.7); /* Brilho crescente */
-  }
-}
-/* configuração cards primary */
-
 .container-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
   margin-top: 20px;
-}
-
-#Primary, #Secondary {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem; 
-  font-size: clamp(2rem, 5vw, 3rem); 
-  padding: 20px;
-  box-sizing: border-box; 
-  border-radius: 10px; 
-  background-color: #f5f5f5; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px); 
-  width: 100%;
-  height: 100%;
-  color: #333;
-  margin-top: 50px;
-
 }
 
 .container-cardsH {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 2 colunas */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
   gap: 20px; /* Espaçamento entre os conjuntos de habilidade */
   margin-top: 40px;
-
 }
+
+/* Titles */
+#Primary, #Secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--whitecolor);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  width: 100%;
+  height: 100%;
+  color: var(--darkcolor);
+  margin-top: 50px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Cards */
 .cardH {
-  width: 190px;
+  width: 100%;
   height: 254px;
-  background: rgb(103, 225, 255);
+  background: var(--darkcolor);
   transition: all 0.4s;
   border-radius: 10px;
   margin-top: 20px;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
   font-size: 30px;
   font-weight: 900;
+  color: var(--whitecolor);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
 .cardH:hover {
   border-radius: 15px;
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.1);
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
-  background: rgb(103, 151, 255);
+}
+
+.cardH::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 12px;
+}
+
+.cardH:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .first-content {
@@ -112,6 +144,7 @@
   align-items: center;
   opacity: 1;
   border-radius: 15px;
+  text-align: center; /* Centraliza o texto horizontalmente */
 }
 
 .cardH:hover .first-content {
@@ -130,6 +163,7 @@
   transition: all 0.4s;
   font-size: 0px;
   transform: rotate(90deg) scale(-1);
+  text-align: center; /* Centraliza o texto horizontalmente */
 }
 
 .cardH:hover .second-content {
@@ -139,38 +173,48 @@
   transform: rotate(0deg);
 }
 
-
-
+/* Search */
 .search-container {
-  display: flex;
+  display: flex; /* Use flex para alinhar os itens */
   align-items: center;
+  justify-content: center;
   margin-top: 10px;
+  width: 100%;
   transition: all 0.3s ease; /* Transição suave para aparecer/desaparecer */
 }
 
 .search-bar {
-  padding-left: 30px;  /* Para dar espaço para o ícone */
-  padding: 8px;
-  width: 200px;
-  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #a3a3a3;
   border-radius: 20px;
   margin-top: 10px; /* Dá um espaço entre o título e a barra de pesquisa */
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+  transition: all 0.3s ease; /* Transição suave para a animação */
 }
 
-/* SKill detalhe */
+.search-bar:focus {
+  border-color: var(--bluecolor); /* Muda a cor da borda ao focar */
+  outline: none; /* Remove o outline padrão */
+  max-width: 500px; /* Aumenta a largura ao focar */
+}
 
+/* Skill Details */
 .skill-details {
   margin-top: 20px;
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
 }
 
 .skill-details h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--darkcolor);
 }
 
 .skill-details p {
@@ -183,20 +227,37 @@
   padding: 8px 16px;
   font-size: 1rem;
   color: #fff;
-  background-color: #007bff;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 .add-skill-btn:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, var(--darkcolor), var(--bluecolor));
+  transform: scale(1.05);
 }
 
+.close-modal-btn {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #ddd;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
 
-/*  modal de skills */
+.close-modal-btn:hover {
+  background-color: #bbb;
+  transform: scale(1.05);
+}
 
-/* Overlay do Modal */
+/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -210,7 +271,6 @@
   z-index: 1000;
 }
 
-/* Conteúdo do Modal */
 .modal-content {
   background: #fff;
   padding: 20px;
@@ -219,40 +279,27 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 80%;
   max-width: 400px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Botões do Modal */
+.modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../assets/background.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.3; /* Ajuste a opacidade conforme necessário */
+  z-index: -1;
+}
+
 .modal-buttons {
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
-}
-
-.add-skill-btn,
-.close-modal-btn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.add-skill-btn {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.add-skill-btn:hover {
-  background-color: #0056b3;
-}
-
-.close-modal-btn {
-  background-color: #ddd;
-  color: #333;
-}
-
-.close-modal-btn:hover {
-  background-color: #bbb;
 }
 
 .modal-content p {
@@ -260,4 +307,25 @@
   max-height: 150px;
   overflow-y: auto;
   font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100px); /* Começa acima */
+    opacity: 0; /* Invisível */
+  }
+  100% {
+    transform: translateY(0); /* Posição final */
+    opacity: 1; /* Totalmente visível */
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    text-shadow: 2px 4px 20px rgba(255, 255, 255, 0.7); /* Brilho crescente */
+  }
 }

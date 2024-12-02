@@ -4,7 +4,6 @@ import { faHandBackFist } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 const Pratica = () => {
-  // Estado para controlar a visibilidade e progresso
   const [progresso, setProgresso] = useState(0);
   const [concluidos, setConcluidos] = useState({
     aula1: false, 
@@ -13,16 +12,14 @@ const Pratica = () => {
     episodio3: false,
     atividade: false,
   });
-  const [telaAtual, setTelaAtual] = useState('aulas'); // controla qual tela está visível
-  const [aulas, setAulas] = useState([]); // Estado para armazenar as aulas
-  const [descricao, setDescricao] = useState(""); // Estado para armazenar a descrição da habilidade
-  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
-  const [erro] = useState(null); // Estado para controlar erros
+  const [telaAtual, setTelaAtual] = useState('aulas');
+  const [aulas, setAulas] = useState([]);
+  const [descricao, setDescricao] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [erro] = useState(null);
 
   useEffect(() => {
-    // Simulação de dados recebidos da API
     setTimeout(() => {
-      // Simulando dados de aulas
       const dadosSimulados = {
         aulas: [
           { nome: 'Aula 1: Introdução', episodios: ['Episódio 1', 'Episódio 2', 'Episódio 3'], atividade: 'Atividade 1' },
@@ -31,28 +28,23 @@ const Pratica = () => {
         descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
       };
 
-      setAulas(dadosSimulados.aulas); // Dados das aulas
-      setDescricao(dadosSimulados.descricao); // Descrição simulada
-      setLoading(false); // Fim do carregamento
-    }, 1000); // Simulando um tempo de carregamento de 1 segundo
-  }, []); // Esse efeito é executado apenas uma vez após o componente ser montado
+      setAulas(dadosSimulados.aulas);
+      setDescricao(dadosSimulados.descricao);
+      setLoading(false);
+    }, 1000);
+  }, []);
 
-  // Função para atualizar o progresso
   const atualizarProgresso = () => {
-    // Calcular o total de conclusões considerando aulas e testes
     const totalAulas = aulas.length;
     const totalTestes = aulas.reduce((total, aula) => {
       return total + aula.episodios.length + (aula.atividade ? 1 : 0);
     }, 0);
 
     const totalConcluidos = Object.values(concluidos).filter(status => status).length;
-
-    // O progresso agora depende tanto das aulas quanto dos testes
-    const totalItens = totalAulas + totalTestes; // Total de aulas e testes
-    setProgresso((totalConcluidos / totalItens) * 100); // Calcula a porcentagem de progresso
+    const totalItens = totalAulas + totalTestes;
+    setProgresso((totalConcluidos / totalItens) * 100);
   };
 
-  // Marcar como concluído e atualizar progresso
   const marcarComoConcluido = (item) => {
     setConcluidos(prev => {
       const novosConcluidos = { ...prev, [item]: true };
@@ -61,23 +53,20 @@ const Pratica = () => {
     });
   };
 
-  // Navegar entre telas (aulas, episódios, atividades)
   const mudarTela = (tela) => setTelaAtual(tela);
 
   if (loading) {
-    return <div>Carregando...</div>; // Exibe enquanto os dados estão sendo carregados
+    return <div>Carregando...</div>;
   }
 
   if (erro) {
-    return <div>{erro}</div>; // Exibe erro se houver
+    return <div>{erro}</div>;
   }
 
-  // Calculando o total de testes baseado nas aulas
   const totalTestes = aulas.reduce((total, aula) => {
     return total + aula.episodios.length + (aula.atividade ? 1 : 0);
   }, 0);
 
-  // Contabilizando os testes concluídos
   const testesConcluidos = Object.values(concluidos).filter(status => status).length;
 
   return (
@@ -109,7 +98,7 @@ const Pratica = () => {
         <div className="container-info-status2">
           <div className="container-habilidade">
             <div className="descricao-habilidade">
-              <p>{descricao}</p> {/* Exibe a descrição simulada */}
+              <p>{descricao}</p>
             </div>
           </div>
 
