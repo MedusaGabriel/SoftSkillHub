@@ -46,7 +46,7 @@ function Home() {
     <>
       <div className="welcome">
         <h1>
-          Bem-vindo ao <span id="soft-h1">Soft Skill Hub</span>
+          BEM-VINDO AO <span>SOFT SKILLS HUB</span>
         </h1>
         <p>Seu centro de desenvolvimento pessoal e profissional</p>
       </div>

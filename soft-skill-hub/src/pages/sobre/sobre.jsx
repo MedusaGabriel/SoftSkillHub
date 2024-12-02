@@ -5,9 +5,9 @@ import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/fre
 
 function Sobre() {
   return (
-    <div className="container-Home">
-      <div className="welcome">
-        <div className="text-container">
+    <div className="container-Sobre">
+      <div className="welcome-Sobre">
+        <div className="text-container-Sobre">
           <h1>Sobre o <span id="soft-h1">Soft Skill Hub</span></h1>
           <p>
             O Soft Skill Hub é uma plataforma dedicada ao desenvolvimento de habilidades interpessoais,
@@ -17,23 +17,6 @@ function Sobre() {
           </p>
         </div>
       </div>
-      <footer className="footer">
-        <div className="social-icons">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-        </div>
-        <p>&copy; 2023 Soft Skill Hub. Todos os direitos reservados.</p>
-      </footer>
     </div>
   );
 }
