@@ -39,7 +39,7 @@ function Header() {
           <nav className="navigation">
             <ul>
               <li><Link to="/home">Home</Link></li>
-              <li><Link to="/">Sobre</Link></li>
+              <li><Link to="/sobre">Sobre</Link></li>
               <li><button onClick={toggleModal} className="link-button">Entrar</button></li>
             </ul>
           </nav>
