@@ -16,21 +16,21 @@ const Modal = ({ isOpen, onClose }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate(); // Coloquei o useNavigate aqui dentro do componente
+  const navigate = useNavigate(); 
 
-  // Lidar com transição de fechamento
+ 
   useEffect(() => {
     if (!isOpen) {
-      setIsClosing(true); // Ativa o estado de fechamento
-      const timeout = setTimeout(() => setIsClosing(false), 1000); // Tempo para animação terminar
+      setIsClosing(true); 
+      const timeout = setTimeout(() => setIsClosing(false), 1000); 
       return () => clearTimeout(timeout);
     }
   }, [isOpen]);
 
-  if (!isOpen && !isClosing) return null; // Só renderiza se o modal está abrindo/fechando
+  if (!isOpen && !isClosing) return null; 
 
   const handleModalClick = (e) => {
-    e.stopPropagation(); // Evita fechar o modal ao clicar dentro dele
+    e.stopPropagation(); 
   };
 
   const handleSwitchToRegister = () => setIsRegister(true);
@@ -83,14 +83,13 @@ const Modal = ({ isOpen, onClose }) => {
 
       if (result.length > 0) {
         localStorage.setItem("userName", result[0].name);
-        setMessage("Login bem-sucedido! Entrando...");
+        setMessage("");
         
-        // Fechar o modal, resetar o formulário e aguardar alguns segundos antes de redirecionar
         setTimeout(() => {
-          onClose(); // Fechar o modal
-          setFormData({ name: "", email: "", password: "" }); // Resetar os dados do formulário
-          navigate('/habilidades'); // Redirecionar para a página de habilidades
-        }, 2000); // Aguardar 2 segundos antes de redirecionar
+          onClose(); 
+          setFormData({ name: "", email: "", password: "" }); 
+          navigate('/habilidades'); 
+        }, 1000); 
       } else {
         setMessage("Email ou senha inválidos.");
       }
