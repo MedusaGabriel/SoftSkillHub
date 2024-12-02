@@ -51,13 +51,15 @@ const Habilidades = () => {
     <div>
       <div className="containerHs">
         <div className="container-titleH">
-          <h1 id="TituloS">Central <span>Habilidades</span></h1>
+          <h1 id="TituloS">Central de <span>Habilidades</span></h1>
         </div>
       </div>
 
-      <main>
+      <main className="centered-content">
         <div className="skill-container">
-          <h2 id="Primary">Principais características mais procuradas:</h2>
+        <section className="primary">
+            <h2>Principais características mais procuradas:</h2>
+          </section>
           <div className="container-cardsH">
             <div className="cardH">
               <div className="first-content">
@@ -114,8 +116,9 @@ const Habilidades = () => {
               </div>
             </div>
           </div>
-
-          <h2 id="Secondary">Skills Disponíveis em nosso Banco de Dados</h2>
+          <section className="primary">
+            <h2>Skills Disponíveis</h2>
+          </section>
 
           <div className="search-container">
             <input
