@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import "../header/Header.css";
 import Modal from '../modal/Modal';
+<<<<<<< Updated upstream
 import Perfil from '../perfil/Perfil';
 import logo from '../../assets/imgs/logo.png';
+=======
+import logo from '../../assets/logo.png';
+>>>>>>> Stashed changes
 
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
