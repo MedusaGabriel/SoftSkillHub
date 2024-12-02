@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Altura total da viewport */
-  background-color: var(--whitecolor);
+  background-color: var(--whitecolor); /* Cor de fundo igual à página home */
   padding: 20px;
   width: 100%; /* Garantir que o contêiner ocupe toda a largura */
 }
@@ -30,15 +30,14 @@
 /* ============================== */
 .pratica {
   display: flex;
-  flex-direction: column; /* Alinhar os elementos verticalmente */
-  align-items: center; /* Centralizar os elementos */
+  flex-direction: row; /* Alinhar os elementos horizontalmente */
+  justify-content: space-between; /* Espaçar os elementos */
   width: 100%;
   max-width: 1200px; /* Limitar a largura máxima */
-  background-color: var(--whitecolor);
+  background-color: var(--whitecolor); /* Cor de fundo dos contêineres */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  gap: 40px; /* Espaçamento entre os contêineres */
+  gap: 20px; /* Espaçamento entre os contêineres */
 }
 
 /* ============================== */
@@ -48,9 +47,99 @@
   display: flex;
   flex-direction: column; /* Alinhar os elementos verticalmente */
   align-items: center; /* Centralizar os elementos */
-  gap: 40px; /* Espaçamento entre os contêineres */
-  width: 100%; /* Garantir que o contêiner ocupe toda a largura */
-  max-width: 800px; /* Limitar a largura máxima */
+  gap: 20px; /* Espaçamento entre os contêineres */
+  width: 30%; /* Largura do container à esquerda */
+  justify-content: center; /* Centralizar verticalmente */
+}
+
+/* ============================== */
+/* Container Foto de Perfil       */
+/* ============================== */
+.container-foto-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
+  border-radius: 8px;
+  padding: 20px;
+  width: 150px; /* Tamanho fixo para a foto de perfil */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  margin-bottom: 20px; /* Espaçamento abaixo da foto de perfil */
+}
+
+.container-foto-perfil:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================== */
+/* Container Testes               */
+/* ============================== */
+.container-test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Reduzir o espaçamento entre os elementos */
+  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
+  border-radius: 8px;
+  height: 80px; 
+  padding: 15px; /* Reduzir o padding */
+  width: 150px; /* Ajustar a largura */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.container-test:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container-test:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.test-title {
+  font-size: 16px; /* Ajustar o tamanho da fonte */
+  font-weight:bold;
+  color: var(--whitecolor); /* Cor do texto */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.test-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--darkcolor);
+  color: var(--whitecolor);
+  font-size: 16px; /* Ajustar o tamanho da fonte */
+  font-weight: bold;
+  padding: 4px 10px; /* Ajustar o padding */
+  border-radius: 8px;
+  width: fit-content;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  margin-top: -30px; /* Subir o test-info */
+}
+
+.container-test::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
 }
 
 /* ============================== */
@@ -64,11 +153,32 @@
   width: 100%;
   max-width: 400px; /* Limitar a largura máxima */
   box-sizing: border-box;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  position: relative;
+  margin-left: auto; /* Mover para a direita */
+}
+
+.container-progress::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.container-progress:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .container-progress:hover {
@@ -80,7 +190,7 @@
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: var(--whitecolor);
+  color: var(--whitecolor); /* Cor do texto */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -106,72 +216,20 @@
 
 .progress-percentage {
   font-size: 14px;
-  color: var(--whitecolor);
+  color: var(--whitecolor); /* Cor do texto */
   margin-top: 6px;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
 
 /* ============================== */
-/* Container Testes               */
-/* ============================== */
-.container-test {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
-  border-radius: 8px;
-  padding: 20px;
-  width: 100%;
-  max-width: 400px; /* Diminuir o tamanho do contêiner de teste */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.container-test:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.test-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--whitecolor);
-  text-align: center;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.test-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--darkcolor);
-  color: var(--whitecolor);
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 14px;
-  border-radius: 8px;
-  width: fit-content;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.test-info:hover {
-  background-color: var(--whitecolor);
-  color: var(--darkcolor);
-  transform: translateY(-3px);
-}
-
-/* ============================== */
 /* Estilizando o Card de Habilidade */
 /* ============================== */
 .card-habilidade {
-  width: 200px;
-  height: 250px;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  width: 100%; /* Ajustar a largura para 100% */
+  max-width: 400px; /* Limitar a largura máxima para igualar ao container de progresso */
+  height: 400px; /* Ajustar a altura automaticamente */
+  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-size: 30px;
@@ -180,8 +238,28 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: var(--whitecolor);
+  color: var(--whitecolor); /* Cor do texto */
   transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.card-habilidade::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.card-habilidade:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .card-habilidade:hover {
@@ -201,10 +279,10 @@
 .container-info-status2 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 40px; /* Espaçamento entre os contêineres */
-  width: 100%; /* Garantir que o contêiner ocupe toda a largura */
-  max-width: 800px; /* Limitar a largura máxima */
+  justify-content:center;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre os contêineres */
+  width: 70%; /* Largura do container à direita */
 }
 
 /* ============================== */
@@ -213,18 +291,43 @@
 .container-habilidade,
 .container-atividades {
   width: 100%;
-  height: 250px;
-  padding: 20px;
+  height: auto; /* Ajustar a altura ao conteúdo */
+  padding: px; /* Diminuir o padding */
   box-sizing: border-box;
+  overflow-x:hidden;
   overflow-y: auto;
-  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  background-color: var(--darkcolor); /* Cor de fundo dos contêineres */
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  position: relative;
+  max-width: 700px; /* Diminuir a largura */
+  height: 330px; /* Aumentar a altura */
 }
 
-.container-habilidade {
-  margin-bottom: 20px;
+.container-habilidade::before,
+.container-atividades::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Garantir que cubra toda a largura */
+  height: 100%; /* Garantir que cubra toda a altura */
+  background: linear-gradient(135deg, var(--bluecolor), var(--darkcolor));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+  width: calc(100% + 40px); /* Expande o gradiente horizontalmente */
+  height: calc(100% + 40px); /* Expande o gradiente verticalmente */
+  top: -20px; /* Ajusta a posição para cobrir o overflow */
+  left: -20px; /* Ajusta a posição para cobrir o overflow */
+}
+
+.container-habilidade:hover::before,
+.container-atividades:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .container-habilidade:hover,
@@ -235,31 +338,32 @@
 
 .container-habilidade::-webkit-scrollbar,
 .container-atividades::-webkit-scrollbar {
-  width: 8px;
+  width: 2px;
 }
 
 .container-habilidade::-webkit-scrollbar-thumb,
 .container-atividades::-webkit-scrollbar-thumb {
-  background-color: var(--darkcolor);
-  border-radius: 8px;
+  background-color: var(--whitecolor);
+  border-radius: 2px;
 }
 
 .container-habilidade::-webkit-scrollbar-track,
 .container-atividades::-webkit-scrollbar-track {
-  background-color: var(--bluecolor);
+  background-color: var(--darkcolor);
 }
 
 .descricao-habilidade {
   color: var(--whitecolor); /* Ajustar a cor do texto */
   font-family: 'Poppins', sans-serif; /* Ajustar a fonte */
-  font-size: 16px;
-  padding: 10px; /* Adicionar padding */
+  font-size: 16px; /* Diminuir o tamanho da fonte */
+  padding: 20px; /* Adicionar padding */
+  text-align: justify; /* Justificar o texto */
 }
 
 h4 {
   font-size: 20px;
   font-weight: bold;
-  color: var(--whitecolor);
+  color: var(--whitecolor); /* Cor do texto */
   margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
@@ -275,7 +379,7 @@ h4 {
 .atividade-item {
   padding: 12px 20px;
   border: none;
-  background-color: var(--darkcolor);
+  background-color: var (--darkcolor);
   color: var(--whitecolor);
   cursor: pointer;
   border-radius: 8px;
@@ -291,11 +395,41 @@ h4 {
 }
 
 .atividades-title {
-  font-size: 22px;
+  font-size: 18px; /* Diminuir o tamanho da fonte */
   font-weight: bold;
   margin-bottom: 20px;
-  color: var(--whitecolor);
+  color: var(--whitecolor); /* Cor do texto */
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+/* Título e Background */
+.container-titleP {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.container-titleP h1 {
+  font-size: 4rem;
+  color: var(--whitecolor);
+  font-family: 'Poppins', SemiBold !important;
+  font-weight: 800; 
+  animation: slide-in 1s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.container-titleP h1 span {
+  color: var(--bluesecondary);
 }
