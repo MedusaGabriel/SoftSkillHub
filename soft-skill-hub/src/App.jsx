@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, } from "react-router-dom";
+import { useEffect } from 'react';
 import Header from "../src/components/header/Header";
 import Footer from "../src/components/footer/Footer";
 import Home from "../src/pages/home/Home";
@@ -9,9 +10,20 @@ import Sobre from "./pages/sobre/sobre";
 import "./App.css";
 import Modal from "./components/modal/login/Modal";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Modal />
       <div className="main-content">

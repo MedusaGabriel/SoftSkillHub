@@ -74,7 +74,7 @@ header ul li a:hover {
    =================== */
 .navigation {
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: end; /* Centraliza o conteúdo horizontalmente */
     width: 100%; /* Garante que a navegação ocupe todo o espaço disponível */
 }
 
