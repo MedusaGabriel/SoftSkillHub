@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "../modal/Modal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom"; // Importe o hook useNavigate
 
 const Modal = ({ isOpen, onClose }) => {
   const [isClosing, setIsClosing] = useState(false);
@@ -14,6 +15,8 @@ const Modal = ({ isOpen, onClose }) => {
   });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate(); // Coloquei o useNavigate aqui dentro do componente
 
   // Lidar com transição de fechamento
   useEffect(() => {
@@ -80,7 +83,14 @@ const Modal = ({ isOpen, onClose }) => {
 
       if (result.length > 0) {
         localStorage.setItem("userName", result[0].name);
-        setMessage("Login bem-sucedido!");
+        setMessage("Login bem-sucedido! Entrando...");
+        
+        // Fechar o modal, resetar o formulário e aguardar alguns segundos antes de redirecionar
+        setTimeout(() => {
+          onClose(); // Fechar o modal
+          setFormData({ name: "", email: "", password: "" }); // Resetar os dados do formulário
+          navigate('/habilidades'); // Redirecionar para a página de habilidades
+        }, 2000); // Aguardar 2 segundos antes de redirecionar
       } else {
         setMessage("Email ou senha inválidos.");
       }
@@ -130,7 +140,7 @@ const Modal = ({ isOpen, onClose }) => {
                 />
                 <label>Senha</label>
               </div>
-              <button id= "btn-entrar"type="submit" className="btn" disabled={loading}>
+              <button id="btn-entrar" type="submit" className="btn" disabled={loading}>
                 {loading ? "Entrando..." : "Entrar"}
               </button>
               <div className="login-register">
