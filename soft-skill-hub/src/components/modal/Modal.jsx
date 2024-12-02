@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import "../modal/Modal.css"; // Certifique-se de que o CSS está correto
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';  // Importando o ícone "fa-xmark"
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import "../modal/Modal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Modal = ({ isOpen, onClose }) => {
-  const [isRegister, setIsRegister] = useState(false); // Controla se está no formulário de cadastro
-  const [isClosing, setIsClosing] = useState(false); // Controla animações
+  const [isClosing, setIsClosing] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,61 +15,47 @@ const Modal = ({ isOpen, onClose }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSwitchToRegister = () => {
-    setIsRegister(true);
-  };
-
-  const handleSwitchToLogin = () => {
-    setIsRegister(false);
-  };
-
-  React.useEffect(() => {
+  // Lidar com transição de fechamento
+  useEffect(() => {
     if (!isOpen) {
-      setIsClosing(false); 
-      setTimeout(() => {
-        setIsClosing(false);
-      }, 500); 
+      setIsClosing(true); // Ativa o estado de fechamento
+      const timeout = setTimeout(() => setIsClosing(false), 1000); // Tempo para animação terminar
+      return () => clearTimeout(timeout);
     }
   }, [isOpen]);
 
-  if (!isOpen && !isClosing) return null; 
+  if (!isOpen && !isClosing) return null; // Só renderiza se o modal está abrindo/fechando
 
   const handleModalClick = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation(); // Evita fechar o modal ao clicar dentro dele
   };
+
+  const handleSwitchToRegister = () => setIsRegister(true);
+
+  const handleSwitchToLogin = () => setIsRegister(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
- 
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage(""); 
+    setMessage("");
 
     try {
       const response = await fetch("http://localhost:5000/usuarios", {
-        method: "POST", 
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData), 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
 
       if (response.ok) {
         setMessage("Cadastro realizado com sucesso!");
-        setFormData({
-          name: "",
-          email: "",
-          password: "",
-        });
+        setFormData({ name: "", email: "", password: "" });
       } else {
         setMessage(result.message || "Erro ao cadastrar.");
       }
@@ -83,22 +69,17 @@ const Modal = ({ isOpen, onClose }) => {
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage(""); 
-  
+    setMessage("");
+
     try {
-      const response = await fetch(`http://localhost:5000/usuarios?email=${formData.email}&password=${formData.password}`, {
-        method: "GET",  
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-  
+      const response = await fetch(
+        `http://localhost:5000/usuarios?email=${formData.email}&password=${formData.password}`
+      );
+
       const result = await response.json();
-  
+
       if (result.length > 0) {
-        // Armazenando o nome do usuário no localStorage
-        localStorage.setItem("userName", result[0].name);  // Armazenando o nome do primeiro usuário encontrado
-        
+        localStorage.setItem("userName", result[0].name);
         setMessage("Login bem-sucedido!");
       } else {
         setMessage("Email ou senha inválidos.");
@@ -112,27 +93,24 @@ const Modal = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`wrapper-container ${isOpen ? 'fade-in' : 'fade-out'}`}
-      onClick={onClose}  
+      className={`wrapper-container ${isClosing ? "fade-out" : "fade-in"}`}
+      onClick={onClose}
     >
       <div
-        className={`wrapper ${isOpen ? 'fade-in' : 'fade-out'} ${isRegister ? 'active' : ''}`}
+        className={`wrapper ${isRegister ? "active" : ""} ${
+          isClosing ? "fade-out" : "fade-in"
+        }`}
         onClick={handleModalClick}
       >
-        {/* Botão de fechar */}
         <span className="icon-close" onClick={onClose}>
           <FontAwesomeIcon icon={faXmark} />
         </span>
 
-        {/* Formulário de Login */}
         {!isRegister ? (
           <div className="form-box login">
             <h2>Login</h2>
             <form onSubmit={handleSubmitLogin}>
               <div className="input-box">
-                <span className="icon">
-                  <ion-icon name="mail"></ion-icon>
-                </span>
                 <input
                   type="email"
                   name="email"
@@ -143,9 +121,6 @@ const Modal = ({ isOpen, onClose }) => {
                 <label>Email</label>
               </div>
               <div className="input-box">
-                <span className="icon">
-                  <ion-icon name="lock-closed"></ion-icon>
-                </span>
                 <input
                   type="password"
                   name="password"
@@ -155,29 +130,23 @@ const Modal = ({ isOpen, onClose }) => {
                 />
                 <label>Senha</label>
               </div>
-              <button type="submit" className="btn" disabled={loading}>
+              <button id= "btn-entrar"type="submit" className="btn" disabled={loading}>
                 {loading ? "Entrando..." : "Entrar"}
               </button>
               <div className="login-register">
                 <p>
                   Não tem uma conta?{" "}
-                  <button className="register-link" onClick={handleSwitchToRegister}>
-                    Registre-se
-                  </button>
+                  <button id="btn-modalLogin" onClick={handleSwitchToRegister}>Registre-se</button>
                 </p>
               </div>
             </form>
             {message && <p className="feedback-message">{message}</p>}
           </div>
         ) : (
-          // Formulário de Cadastro
           <div className="form-box register">
             <h2>Cadastro</h2>
             <form onSubmit={handleSubmitRegister}>
               <div className="input-box">
-                <span className="icon">
-                  <ion-icon name="person"></ion-icon>
-                </span>
                 <input
                   type="text"
                   name="name"
@@ -188,9 +157,6 @@ const Modal = ({ isOpen, onClose }) => {
                 <label>Nome</label>
               </div>
               <div className="input-box">
-                <span className="icon">
-                  <ion-icon name="mail"></ion-icon>
-                </span>
                 <input
                   type="email"
                   name="email"
@@ -201,9 +167,6 @@ const Modal = ({ isOpen, onClose }) => {
                 <label>Email</label>
               </div>
               <div className="input-box">
-                <span className="icon">
-                  <ion-icon name="lock-closed"></ion-icon>
-                </span>
                 <input
                   type="password"
                   name="password"
@@ -218,15 +181,13 @@ const Modal = ({ isOpen, onClose }) => {
                   <input type="checkbox" /> Eu concordo com os termos
                 </label>
               </div>
-              <button type="submit" className="btn" disabled={loading}>
+              <button id="btn-entrar" type="submit" className="btn" disabled={loading}>
                 {loading ? "Cadastrando..." : "Cadastrar"}
               </button>
               <div className="login-register">
                 <p>
                   Já tem uma conta?{" "}
-                  <button className="login-link" onClick={handleSwitchToLogin}>
-                    Login
-                  </button>
+                  <button id="btn-modalLogin" onClick={handleSwitchToLogin}>Login</button>
                 </p>
               </div>
             </form>
