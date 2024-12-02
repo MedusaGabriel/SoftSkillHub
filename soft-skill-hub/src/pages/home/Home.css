@@ -139,7 +139,7 @@ body {
 
 .intro h2 {
   color: var(--blackcolor);
-  font-size: 2em;
+  font-size: 3em;
   font-family: poppins;
 }
 
@@ -344,9 +344,9 @@ img[alt="Imagem 2"] {
   justify-content: center;
 }
 
-.cards-intro h2 {
+.cards-intro h1 {
   color: var(--whitecolor);
-  font-size: 2em;
+  font-size: 3em;
   font-family: poppins;
 }
 

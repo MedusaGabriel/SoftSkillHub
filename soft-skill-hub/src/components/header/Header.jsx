@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUncharted } from '@fortawesome/free-brands-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import "../header/Header.css";
 import Modal from '../modal/Modal';
+import logo from '../../assets/imgs/logo.png';
 
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,8 +29,8 @@ function Header() {
       <div className="Hcontainer">
         <div className="flex">
           {/* Logo */}
-          <Link to="/">
-            <FontAwesomeIcon icon={faUncharted} className="IconSoft" />
+          <Link to="/home">
+            <img src={logo} alt="Logo" className="IconSoft"/>
           </Link>
 
           {/* Navegação */}

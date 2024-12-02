@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '../../components/global/themes.css';
+
 /* ===================
    RESPONSIVIDADE
    =================== */
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
     header {
         flex-direction: column; /* Header se empilha verticalmente */
         padding: 15px 3%;
@@ -33,10 +36,12 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
 }
 
 header.Scrolling {
-    background-color: #e91e63; /* Muda o fundo ao rolar */
+    background-color: var(--darkcolor); /* Muda o fundo ao rolar */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
     padding: 15px 5%; /* Menos padding ao rolar */
 }
@@ -54,99 +59,117 @@ header ul li {
 }
 
 header ul li a {
-    color: #fafafa;
+    color: var(--header-link-color);
     text-decoration: none;
     font-size: 1em;
     transition: color 0.3s;
 }
 
 header ul li a:hover {
-    color: #e91e63; /* Efeito hover */
+    color: var(--header-link-hover-color); /* Efeito hover */
 }
 
 /* ===================
    NAVEGAÇÃO
    =================== */
-.navigation ul {
+   .navigation {
     display: flex;
-    gap: 50px;
+    justify-content: flex-end; /* Alinha o conteúdo à esquerda */
+    width: 100%; /* Garante que a navegação ocupe todo o espaço disponível */
+}
+
+   .navigation ul {
     margin: 0;
     padding: 0;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-content: flex-end; /* Alinha os itens à esquerda */
+    width: auto; /* Remove a largura fixa */
 }
 
-.navigation ul li a {
+.navigation ul li {
+    list-style: none;
+}
+
+.navigation ul li a, .link-button { /* cor no header */
     text-decoration: none;
-    color: #fafafa;
+    color: var(--whitecolor);
     font-size: 1em;
+    width: auto;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
-.navigation ul li a:hover {
-    color: #e91e63; /* Efeito hover */
+.navigation ul li a:hover, .link-button:hover {
+    color: var(--darkcolor); /* Efeito hover */
 }
 
 /* ===================
    EFEITOS DE NAVEGAÇÃO
    =================== */
-.navigation a {
+.navigation a, .link-button {
+    width: auto;
+    margin: 0;
     position: relative;
+    justify-content: end;
     font-size: 1.1em;
-    color: #f5f5f5;
+    color: var(--whitecolor);
     text-decoration: none;
     font-weight: 500;
-    margin-left: 40px;
+    margin-left: 0; /* Remove o margin-left */
 }
 
-.navigation a::after {
+.navigation a::after, .link-button::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: -6px;
     width: 100%;
     height: 3px;
-    background-color: #e91e63;
+    background-color: var(--header-link-hover-color);
     border-radius: 5px;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.5s;
 }
 
-.navigation a:hover::after {
+.navigation a:hover::after, .link-button:hover::after {
     transform: scaleX(1);
     transform-origin: left;
 }
 
-/* ===================
-   ICONE SOFT (IconSoft)
-   =================== */
+header.Scrolling .navigation ul li a:hover, header.Scrolling .link-button:hover {
+    color: var(--bluecolor);
+}
+
+header.Scrolling .navigation a::after, header.Scrolling .link-button::after {
+    background-color: var(--new-hover-color); 
+}
+
 .IconSoft {
-    font-size: 3.5em;  /* Tamanho do ícone */
-    color: #e91e63;  /* Cor padrão do ícone */
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.IconSoft:hover {
-    color: #9c27b0;
-    transform: rotate(180deg) scale(1.3); 
-}
-
-.IconSoft.Scrolling {
-    color: #ffffff; /* Muda a cor do ícone ao rolar */
+    width: 50%;
 }
 
 /* ===================
    BOTÃO
    =================== */
-button {
+   button, .link-button {
+    width: auto;
     border-radius: 8px;
     border: none;
-    padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     background-color: transparent;
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: color 0.3s, border-color 0.25s;
+    text-decoration: none;
+    color: var(--whitecolor);
+}
+
+button:hover, .link-button:hover {
+    color: var(--darkcolor); /* Efeito hover */
 }
 
 /* ===================
@@ -157,7 +180,6 @@ button {
     margin: 0 auto;
     background: transparent;
     box-shadow: none;
-    
 }
 
 /* ===================
@@ -166,36 +188,5 @@ button {
 header.Scrolling .navigation ul li a,
 header.Scrolling .IconSoft,
 header.Scrolling .IconUser {
-    color: #ffffff; /* Muda a cor dos links ao rolar */
-}
-
-/* ===================
-   EFEITOS DE NAVEGAÇÃO
-   =================== */
-.navigation a {
-    position: relative;
-    font-size: 1.1em;
-    color: #f5f5f5;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
-}
-
-.navigation a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background-color: #e91e63;
-    border-radius: 5px;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform 0.5s;
-}
-
-.navigation a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
+    color: var(--whitecolor); /* Muda a cor dos links ao rolar */
 }

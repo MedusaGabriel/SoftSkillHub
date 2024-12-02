@@ -148,7 +148,7 @@ function Home() {
           </div>
           <div className="background-color">
           <section className="cards-intro">
-            <h2>Por que escolher nosso site? </h2>
+            <h1>Por que escolher nosso site? </h1>
           </section>
 
           <div className="home-cards">

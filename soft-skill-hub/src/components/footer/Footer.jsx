@@ -36,22 +36,6 @@ function Footer() {
     <footer id="footer" className={`footer ${showFooter ? 'show' : ''}`}>
       <div className="footer__content">
         <p>Desenvolvido por Soft Skill Hub ©</p>
-        
-        {/* Seção de ícones das redes sociais */}
-        <div className="footer__social">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faWhatsapp} />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-        </div>
       </div>
     </footer>
   );
