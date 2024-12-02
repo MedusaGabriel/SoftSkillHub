@@ -59,12 +59,11 @@ function Sobre() {
               <div className="sobre-timeline-circle">1</div>
               <button className="sobre-timeline-content" onClick={handleClick}>
                 <div className="sobre-timeline-text">
-                  <h3>Cadastro</h3>
+                  <h3>Gabriel The Great Wizard Cat Fat</h3>
                   <p>
-                    Antes de tudo, para acessar nosso conteúdo exclusivo e
-                    materiais de estudo, você precisa se cadastrar! É fácil:
-                    clique no ícone de usuário ou no botão no final desta página
-                    e comece agora mesmo.
+                  Gabriel, o Grande Mago Gato Gorducho, é o verdadeiro mestre por trás da estrutura e organização desta página. Com suas habilidades mágicas de felino, 
+                  ele garante que cada elemento esteja no lugar certo, funcionando de maneira impecável. 
+                  Nada escapa ao olhar atento deste mago gordinho, que é a verdadeira alma da página.
                   </p>
                 </div>
                 <div className="sobre-timeline-image">
@@ -80,12 +79,12 @@ function Sobre() {
                   <img src="../src/assets/anderson.png" alt="Imagem 2" />
                 </div>
                 <div className="sobre-timeline-text2">
-                  <h3>Apresentação ao Conteúdo</h3>
+                  <h3>Anderson Djalma</h3>
                   <p>
-                    Conta criada com sucesso? Agora é hora de escolher pelo
-                    menos 3 soft skills que você quer aprender. Assim que fizer
-                    sua seleção, você terá acesso à nossa incrível Central de
-                    Habilidades.
+                  Anderson Djalma é o responsável pelo design das páginas e pelo desenvolvimento da paleta de cores utilizada.
+                  Sua habilidade em escolher e combinar cores de maneira estratégica assegura uma identidade visual consistente e 
+                  alinhada aos objetivos do projeto, refletindo de forma clara a proposta do conteúdo e facilitando a navegação.
+                  Nas noites mais densas e escuras ele é chamado de gostozinho.
                   </p>
                 </div>
               </button>
@@ -95,11 +94,11 @@ function Sobre() {
               <div className="sobre-timeline-circle">3</div>
               <button className="sobre-timeline-content" onClick={handleClick}>
                 <div className="sobre-timeline-text">
-                  <h3>Central de Habilidades</h3>
+                  <h3>Ryan Nunes </h3>
                   <p>
-                    Na Central de Habilidades, você encontrará todo o nosso
-                    conteúdo educativo, organizado e personalizado de acordo com
-                    as suas necessidades e objetivos.
+                  Ryan Nunes auxilia no desenvolvimento das páginas, com foco no conteúdo sobre a equipe, práticas e nos elementos criados por Anderson Djalma.
+                   Seu trabalho complementa o design e a estrutura, garantindo que as informações sejam apresentadas de maneira organizada e eficiente.
+                   Co-criador do termo do Não-Binario
                   </p>
                 </div>
                 <div className="sobre-timeline-image">
@@ -115,11 +114,11 @@ function Sobre() {
                   <img src="../src/assets/brian.png" alt="Imagem 4" />
                 </div>
                 <div className="sobre-timeline-text2">
-                  <h3>Central de Práticas</h3>
+                  <h3>Samuel Brian </h3>
                   <p>
-                    Aqui você pode acompanhar de perto seu progresso! Visualize
-                    as soft skills escolhidas para aprender e monitore o quanto
-                    já avançou em cada uma delas.
+                  Sammuel Brian é responsável por organizar o conteúdo da página e garantir uma comunicação clara. 
+                  Ele contribui para melhorar a experiência do usuário, focando na disposição das informações e na interação com o público.
+                  Ele gosta de Lasanha de frango com charque.
                   </p>
                 </div>
               </button>
